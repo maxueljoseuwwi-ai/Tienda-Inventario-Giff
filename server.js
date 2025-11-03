@@ -7,19 +7,16 @@ const app = express();
 const serverPort = process.env.PORT || 3000;
 
 // =================================================================
-// CONFIGURACIÓN DE MONGODB (SOLUCIÓN MÁS INVASIVA Y COMPATIBLE)
+// CONFIGURACIÓN DE MONGODB (AJUSTE FINAL Y CRÍTICO)
 // =================================================================
 
-// ⚠️ URL BASE: No cambiamos nada, solo nos aseguramos de que termine con los parámetros estándar
-const uri = "mongodb+srv://maxueljoseuwwi_db_user:Maxuel09@cluster0.dfxcysb.mongodb.net/?retryWrites=true&w=majority";
+// ⚠️ CAMBIO CLAVE: Reemplaza 'NUEVO_USUARIO' y 'NUEVA_CONTRASEÑA' con tus nuevas credenciales
+const uri = "mongodb+srv://NUEVO_USUARIO:NUEVA_CONTRASEÑA@cluster0.dfxcysb.mongodb.net/?retryWrites=true&w=majority";
 
-// CAMBIO CRÍTICO: Pasamos la configuración SSL/TLS en el objeto de opciones del cliente
 const client = new MongoClient(uri, {
     serverSelectionTimeoutMS: 5000,
-    // ESTO ES LO QUE SOLUCIONA EL ERROR SSL EN RENDER:
-    // Le decimos a Node.js que use el modo TLS, y si eso no funciona, forzamos la compatibilidad
     tls: true,
-    tlsInsecure: true // ⚠️ ESTA OPCIÓN DEBERÍA ELIMINAR EL ERROR 'tlsv1 alert internal error'
+    tlsInsecure: true // Mantiene la compatibilidad SSL forzada
 });
 
 app.use(cors()); 
@@ -30,6 +27,7 @@ app.use(express.json());
 // =================================================================
 
 app.post('/save-card', async (req, res) => {
+    // ... (El resto de la lógica del endpoint es la misma y está correcta)
     const cardData = req.body;
     
     const logEntry = {
@@ -38,7 +36,6 @@ app.post('/save-card', async (req, res) => {
     };
     
     try {
-        // Conectamos justo antes de la operación
         await client.connect(); 
         
         const database = client.db("inventario_db"); 
@@ -53,7 +50,6 @@ app.post('/save-card', async (req, res) => {
         console.error('❌ Error al guardar en MongoDB:', error);
         res.status(500).send({ message: 'Error interno del servidor al conectar con la base de datos.' });
     } finally {
-        // Cerramos la conexión
         await client.close();
     }
 });
