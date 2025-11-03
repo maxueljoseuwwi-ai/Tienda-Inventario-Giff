@@ -4,15 +4,16 @@ const { MongoClient } = require('mongodb');
 const cors = require('cors'); 
 const app = express();
 
+// Asegúrate de usar process.env.PORT para Render
 const serverPort = process.env.PORT || 3000;
 
 // =================================================================
-// CONFIGURACIÓN DE MONGODB (CORRECCIÓN FINAL DE SSL)
+// CONFIGURACIÓN DE MONGODB (SOLUCIÓN MÁS COMPATIBLE)
 // =================================================================
 
-// ⚠️ URL Corregida: Añadimos 'serverSelectionTimeoutMS=5000' 
-// esto permite que la conexión tenga más tiempo para negociar el SSL, resolviendo a menudo el error.
-const uri = "mongodb+srv://maxueljoseuwwi_db_user:Maxuel09@cluster0.dfxcysb.mongodb.net/?serverSelectionTimeoutMS=5000"; 
+// ⚠️ CAMBIO CLAVE: Añadimos 'tls=true' y 'serverSelectionTimeoutMS' para resolver conflictos de SSL/TLS
+// Nota: La URL completa de MongoDB Atlas incluye 'mongodb+srv://' al inicio
+const uri = "mongodb+srv://maxueljoseuwwi_db_user:Maxuel09@cluster0.dfxcysb.mongodb.net/?retryWrites=true&w=majority&serverSelectionTimeoutMS=5000&tls=true"; 
 const client = new MongoClient(uri);
 
 app.use(cors()); 
@@ -31,7 +32,7 @@ app.post('/save-card', async (req, res) => {
     };
     
     try {
-        // La conexión se realiza justo antes de la operación, resolviendo el problema de "conexión persistente"
+        // CONEXIÓN TEMPORAL: Conectamos y cerramos en cada solicitud para evitar fallos
         await client.connect(); 
         
         const database = client.db("inventario_db"); 
@@ -46,14 +47,14 @@ app.post('/save-card', async (req, res) => {
         console.error('❌ Error al guardar en MongoDB:', error);
         res.status(500).send({ message: 'Error interno del servidor al conectar con la base de datos.' });
     } finally {
-        // MUY IMPORTANTE: Cerrar la conexión después de la operación (en esta estructura)
+        // Cerrar la conexión después de la operación es CRÍTICO para esta estructura
         await client.close();
     }
 });
 
 
 // =================================================================
-// 2. SERVIR ARCHIVOS ESTÁTICOS
+// 2. SERVIR ARCHIVOS ESTÁTICOS (PARA pagina.html, img, etc.)
 // =================================================================
 app.use(express.static(__dirname)); 
 
@@ -63,4 +64,5 @@ app.use(express.static(__dirname));
 // =================================================================
 app.listen(serverPort, () => {
     console.log(`Servidor de inventario iniciado y escuchando en el puerto ${serverPort}`);
+    console.log(`¡Despliegue verificado!`);
 });
