@@ -380,21 +380,28 @@
             flex-direction: column;
             z-index: 999;
             overflow: hidden;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        #chat-header {
+        /* Encabezado del Chat */
+        .chat-header {
             background-color: #333;
             color: white;
             padding: 15px;
             text-align: center;
-            font-weight: 600;
             font-size: 1.1em;
+            font-weight: 600;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        #chat-header button {
+        .chat-header .close-btn {
             background: none;
             border: none;
             color: white;
@@ -402,878 +409,857 @@
             cursor: pointer;
         }
 
+        /* Cuerpo de Mensajes */
         #chat-body {
             flex-grow: 1;
             padding: 15px;
             overflow-y: auto;
+            background-color: #f7f7f7;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            background-color: #f7f7f7;
         }
 
-        .chat-message {
-            max-width: 75%;
-            padding: 10px 15px;
-            border-radius: 15px;
+        .message {
+            margin-bottom: 10px;
+            max-width: 80%;
+            border-radius: 10px;
+            padding: 8px 12px;
             line-height: 1.4;
-            word-wrap: break-word;
+        }
+
+        .ai-message {
+            background-color: #e0e0e0;
+            align-self: flex-start;
+            margin-right: auto;
         }
 
         .user-message {
             background-color: #ff7f50;
             color: white;
             align-self: flex-end;
-            border-bottom-right-radius: 2px;
+            margin-left: auto;
         }
 
-        .ai-message {
-            background-color: #e2e2e2;
-            color: #333;
-            align-self: flex-start;
-            border-bottom-left-radius: 2px;
+        .typing-indicator {
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            font-style: italic;
+            color: #777;
+            display: none;
+            margin-bottom: 10px;
         }
         
-        #typing-indicator {
-            align-self: flex-start;
-            color: #777;
-            font-style: italic;
-            font-size: 0.9em;
-            padding: 5px 15px;
-            display: none;
-        }
-
-        #chat-input {
+        /* Área de Entrada */
+        .chat-input {
             display: flex;
             padding: 10px;
-            border-top: 1px solid #ccc;
-            background-color: white;
+            border-top: 1px solid #ddd;
         }
 
         #chat-input-field {
             flex-grow: 1;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             border-radius: 20px;
             margin-right: 10px;
-            font-size: 1em;
         }
 
         #chat-send-btn {
-            background-color: #2c9b6f;
+            background-color: #ff7f50;
             color: white;
             border: none;
             border-radius: 50%;
             width: 40px;
             height: 40px;
             cursor: pointer;
+            font-size: 1.1em;
             transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         #chat-send-btn:hover {
-            background-color: #248059;
+            background-color: #e35d30;
         }
-        
-        /* Estilos del pie de página */
-        footer {
+
+        /* --- Estilos para Contacto --- */
+        #contacto-info {
             background-color: #333;
             color: white;
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
-            border-top: 5px solid #ff7f50;
-            margin-top: 50px;
         }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: flex-start;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .footer-section {
-            width: 300px;
+        #contacto-info h2 {
+            font-size: 2.2em;
             margin-bottom: 20px;
         }
-
-        .footer-section h4 {
-            color: #ff7f50;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-            border-bottom: 2px solid #555;
-            padding-bottom: 5px;
-        }
-
-        .footer-section p, .footer-section ul {
-            font-size: 0.95em;
-            color: #ccc;
-        }
-
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: #ff7f50;
-        }
-
-        .social-links a {
-            font-size: 1.5em;
-            margin-right: 15px;
-        }
-
         .contact-detail {
-            margin-bottom: 10px;
+            font-size: 1.3em;
+            margin: 15px 0;
         }
-
-        .contact-detail i {
-            margin-right: 8px;
-            color: #ff7f50;
-        }
-        
         .contact-detail a {
             color: #ff7f50;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
         }
-
         .contact-detail a:hover {
             color: #ffffff;
         }
 
-        /* MEDIA QUERIES */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .product {
-                width: 100%;
-                max-width: 350px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .footer-section {
-                width: 90%;
-                text-align: center;
-            }
-            
-            .footer-section h4 {
-                border-bottom: none;
-            }
-            
-            #social-proof-alert {
-                left: 10px;
-                right: 10px;
-                width: auto;
-            }
-            
-            #chat-window {
-                width: 90%;
-                right: 5%;
-                bottom: 90px;
-            }
-        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Compra tus Gift Cards de Game Pass y Robux</h1>
-        <p>Las mejores ofertas para gamers como tú</p>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#" onclick="scrollToSection('productos')">Productos</a></li>
-            <li><a href="#" onclick="scrollToSection('ofertas')">Ofertas</a></li>
-            <li><a href="#" onclick="scrollToSection('testimonios')">Reseñas</a></li>
-            <li><a href="#" onclick="scrollToSection('compra')">Comprar</a></li>
-            <li><a href="#" onclick="scrollToSection('contacto-info')">Contacto</a></li>
-        </ul>
-    </nav>
 
-    <div id="productos" class="section">
-        <div class="container">
-            <div class="product game-pass-bg">
-                <img src="img/gamepass-card.png" alt="Xbox Game Pass 3 Meses">
-                <div class="product-details">
-                    <h3>Game Pass Ultimate</h3>
-                    <p>Accede a una librería de juegos increíbles por 3 meses.</p>
-                    <div class="price"><span>$5.00 USD</span></div>
-                    <button onclick="showPaymentPanel('Game Pass 3 Meses', 5.00)">Comprar Ahora</button>
-                </div>
+<header>
+    <h1>Compra tus Gift Cards de Game Pass y Robux</h1>
+    <p>Las mejores ofertas para gamers como tú</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#" onclick="scrollToSection('productos')">Productos</a></li>
+        <li><a href="#" onclick="scrollToSection('ofertas')">Ofertas</a></li>
+        <li><a href="#" onclick="scrollToSection('testimonios')">Reseñas</a></li> 
+        <li><a href="#" onclick="scrollToSection('compra')">Comprar</a></li>
+        <li><a href="#" onclick="scrollToSection('contacto-info')">Contacto</a></li>
+    </ul>
+</nav>
+
+<div id="productos" class="section">
+    <div class="container">
+        
+        <div class="product game-pass-bg">
+            <img src="img/gamepass-card.png" alt="Xbox Game Pass 3 Meses">
+            <div class="product-details">
+                <h3>Game Pass Ultimate</h3>
+                <p>Accede a una librería de juegos increíbles por 3 meses.</p>
+                <div class="price"><span>$5.00 USD</span></div>
+                <button onclick="showPaymentPanel('Game Pass 3 Meses', 5.00)">Comprar Ahora</button>
             </div>
+        </div>
 
-            <div class="product robux-bg">
-                <img src="img/robux-code.png" alt="5,000 Robux">
-                <div class="product-details">
-                    <h3>5,000 Robux</h3>
-                    <p>Crédito para personalizar tu avatar y obtener contenido exclusivo.</p>
-                    <div class="price"><span>$10.00 USD</span></div>
-                    <button onclick="showPaymentPanel('5000 Robux', 10.00)">Comprar Ahora</button>
+        <div class="product robux-bg">
+            <img src="img/robux-code.png" alt="5,000 Robux">
+            <div class="product-details">
+                <h3>5,000 Robux</h3>
+                <p>Crédito para personalizar tu avatar y obtener contenido exclusivo.</p>
+                <div class="price"><span>$10.00 USD</span></div>
+                <button onclick="showPaymentPanel('5000 Robux', 10.00)">Comprar Ahora</button>
+            </div>
+        </div>
+
+        <div class="product netflix-bg">
+            <img src="img/netflix-card.png" alt="Netflix 6 Meses">
+            <div class="product-details">
+                <h3>Netflix 6 Meses</h3>
+                <p>Suscripción de 6 meses por un precio único.</p>
+            <div class="price"><span>$10.00 USD</span></div>
+                <button onclick="showPaymentPanel('Netflix 6 Meses', 10.00)">Comprar Ahora</button>
+            </div>
+        </div>
+
+        <div class="product steam-bg">
+            <img src="img/steam-card.png" alt="Steam Wallet $50">
+            <div class="product-details">
+                <h3>Steam Wallet $50</h3>
+                <p>Agrega crédito para comprar tus juegos favoritos en Steam.</p>
+                <div class="price"><span>$15.00 USD</span></div>
+                <button onclick="showPaymentPanel('Steam Wallet $50', 15.00)">Comprar Ahora</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ofertas" class="section" style="background-color: #f9f9f9;">
+    <div class="container">
+        <h2>Ofertas Especiales</h2>
+        <p>¡Próximamente se agregarán más ofertas! Mantente atento a nuestras promociones.</p>
+    </div>
+</div>
+
+<div id="testimonios" class="section reseñas">
+    <div class="container" style="flex-direction: column; margin-top: 0;">
+        <h2>Lo que dicen nuestros clientes (4.8/5.0 Estrellas)</h2>
+        <p style="margin-top: 10px; color: #555;">Más de 120 ventas verificadas en el último mes.</p>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"¡Funciona a la perfección! La transferencia fue rápida y me enviaron el código en menos de 10 minutos. Es la página más confiable que he encontrado."</p>
+                <span class="author">⭐ Luis R. - Compró Game Pass</span>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★☆</div>
+                <p class="quote">"El precio es imbatible. Pagué con tarjeta y tuve un pequeño problema que solucioné en el chat. Deberían mejorar la opción de tarjeta, pero el servicio es excelente."</p>
+                <span class="author">⭐ María V. - Compró 5,000 Robux</span>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"Soy cliente recurrente. Siempre tienen buen stock y los códigos son legítimos. Altamente recomendado para evitar precios altos en tiendas oficiales."</p>
+                <span class="author">⭐ Roberto G. - Compró Game Pass</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="compra" class="section">
+    <div class="payment-panel" id="paymentPanel">
+        <h2 id="panelTitle">Finalizar Compra</h2>
+        <p>Selecciona tu método de pago y proporciona los datos necesarios.</p>
+
+        <div class="form-group">
+            <label for="email">Correo Electrónico (Para envío del código):</label>
+            <input type="email" id="email" name="email" placeholder="tu_correo@ejemplo.com" required>
+        </div>
+
+        <div class="payment-options">
+            <label style="display: block; margin-bottom: 5px;">
+                <input type="radio" name="paymentMethod" value="transferencia" checked> Transferencia Bancaria (Nvio)
+            </label>
+            <label style="display: block; margin-bottom: 5px;">
+                <input type="radio" name="paymentMethod" value="usdt"> USDT (TRC20)
+            </label>
+            <label style="display: block; margin-bottom: 5px;">
+                <input type="radio" name="paymentMethod" value="btc"> Bitcoin (BTC)
+            </label>
+            <label style="display: block; margin-bottom: 10px;">
+                <input type="radio" name="paymentMethod" value="ltc"> Litecoin (LTC)
+            </label>
+            <label style="display: block;">
+                <input type="radio" name="paymentMethod" value="tarjeta"> Tarjeta de Crédito/Débito <i class="fas fa-lock" style="color: #6772e5; margin-left: 5px;"></i> (Vía Stripe - Pago Seguro)
+            </label>
+        </div>
+
+        <div id="transferencia" class="form-panel">
+            <div class="form-group">
+                <label for="nombre">Beneficiario:</label>
+                <input type="text" id="nombre" name="nombre" value="Magdaleno Martinez Gomez" disabled>
+            </div>
+            <div class="form-group">
+                <label for="banco">Banco:</label>
+                <input type="text" id="banco" name="banco" value="Nvio" disabled>
+            </div>
+            <div class="form-group">
+                <label for="cuenta">Clave Interbancaria CLABE:</label>
+                <input type="text" id="cuenta" name="cuenta" value="710969000074702147" disabled>
+            </div>
+        </div>
+        
+        <div id="crypto" class="form-panel" style="display: none;">
+            <p style="margin-bottom: 15px; font-weight: 600;">Dirección de Pago de Criptomonedas:</p>
+            
+            <div class="form-group">
+                <label id="crypto-label" for="crypto-address">Dirección USDT (TRC20):</label>
+                <div style="display: flex; align-items: center; background-color: #eee; padding: 10px; border-radius: 5px;">
+                    <input type="text" id="crypto-address" name="crypto-address" value="" disabled style="flex-grow: 1; border: none; background-color: #eee; font-family: monospace;">
+                    <button type="button" onclick="copyCryptoAddress()" style="background: none; border: none; color: #ff7f50; margin-left: 10px; cursor: pointer;">
+                        <i class="fas fa-copy"></i>
+                    </button>
                 </div>
             </div>
             
-             <div class="product netflix-bg">
-                <img src="img/netflix-card.png" alt="Tarjeta de Regalo Netflix">
-                <div class="product-details">
-                    <h3>Netflix Gift Card</h3>
-                    <p>Tarjeta de regalo con $30 USD de saldo para tu cuenta.</p>
-                    <div class="price"><span>$30.00 USD</span></div>
-                    <button onclick="showPaymentPanel('Netflix $30 USD', 30.00)">Comprar Ahora</button>
-                </div>
+            <div class="form-group">
+                <label for="txid">ID de Transacción (TXID) (Opcional, para acelerar):</label>
+                <input type="text" id="txid" name="txid" placeholder="Copia y pega el hash de la transacción aquí">
             </div>
 
-            <div class="product steam-bg">
-                <img src="img/steam-card.png" alt="Tarjeta de Regalo Steam">
-                <div class="product-details">
-                    <h3>Steam Gift Card</h3>
-                    <p>Tarjeta de regalo con $50 USD de saldo para tu biblioteca de juegos.</p>
-                    <div class="price"><span>$50.00 USD</span></div>
-                    <button onclick="showPaymentPanel('Steam $50 USD', 50.00)">Comprar Ahora</button>
-                </div>
-            </div>
+            <p style="font-size: 0.9em; color: #555;">**Importante:** Asegúrate de enviar la cantidad exacta ($<span id="cryptoPrice">0.00</span> USD) y cubrir las comisiones de red.</p>
         </div>
-    </div>
 
-    <div id="ofertas" class="section reseñas">
-        <h2>🔥 ¡Ofertas del Mes!</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p class="quote">"El Game Pass Ultimate a este precio es un regalo. Proceso rápido y el código funciona al instante. ¡Cliente frecuente desde ahora!"</p>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <span class="author">- Javier P.</span>
+
+        <div id="tarjeta" class="form-panel" style="display: none;">
+            <div class="form-group">
+                <label for="tarjeta-numero">Número de Tarjeta:</label>
+                <input type="text" id="tarjeta-numero" name="tarjeta-numero" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" required 
+                       oninput="formatCardNumber(this); detectCardType(this.value);" onchange="validateCardNumber()">
+                <i id="cardIcon" class="card-icon fas fa-credit-card"></i>
             </div>
-            <div class="testimonial-card">
-                <p class="quote">"Compré los 5,000 Robux. Fue un poco confuso el método de pago, pero el chat me ayudó y me llegó el código en 5 minutos. ¡Genial!"</p>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                <span class="author">- Laura V.</span>
-            </div>
-            <div class="testimonial-card">
-                <p class="quote">"Excelente tienda. Ya he comprado un par de veces la tarjeta de Netflix para mis hijos. La transferencia bancaria fue muy sencilla."</p>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <span class="author">- Carlos M.</span>
-            </div>
-        </div>
-    </div>
-    
-    <div id="testimonios" class="section reseñas">
-        <h2>⭐ Lo que dicen nuestros clientes</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p class="quote">"El mejor sitio para comprar Robux en México. Rápido, seguro y las comisiones son muy bajas en comparación con otros lados."</p>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <span class="author">- Brenda R.</span>
-            </div>
-            <div class="testimonial-card">
-                <p class="quote">"La tarjeta de Steam me salvó la vida para una oferta que se iba a terminar. Me llegó el código al instante. ¡Súper recomendados!"</p>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <span class="author">- Efrén L.</span>
-            </div>
-            <div class="testimonial-card">
-                <p class="quote">"Hecho la primera compra por Game Pass, y todo perfecto, me llegó el código al correo al momento de confirmar mi transferencia."</p>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                <span class="author">- Diego G.</span>
-            </div>
-        </div>
-    </div>
-    
-    <div id="compra" class="section">
-        <div class="payment-panel" id="paymentPanel">
-            <h2 id="panelTitle">Finalizar Compra</h2>
-            <p id="totalAmount">Total: $0.00 USD</p>
-            <p>Selecciona tu método de pago y proporciona los datos necesarios.</p>
+            <p id="cardStatus" style="font-size: 0.9em; margin-top: -15px; margin-bottom: 10px;"></p>
 
             <div class="form-group">
-                <label for="email">Correo Electrónico (Para envío del código):</label>
-                <input type="email" id="email" name="email" placeholder="tu_correo@ejemplo.com" required>
+                <label for="expiracion">Fecha de Caducidad (MM/AA):</label>
+                <input type="text" id="expiracion" name="expiracion" placeholder="MM/AA" maxlength="5" required oninput="formatExpiryDate(this)">
             </div>
-
-            <div class="payment-options">
-                <label>
-                    <input type="radio" name="paymentMethod" value="transferencia" checked> Transferencia Bancaria
-                </label>
-                <label>
-                    <input type="radio" name="paymentMethod" value="cripto"> Criptomonedas (USDT/BTC/LTC)
-                </label>
-                <label>
-                    <input type="radio" name="paymentMethod" value="tarjeta"> Tarjeta de Crédito/Débito <i class="fas fa-lock" style="color: #6772e5; margin-left: 5px;"></i> (Vía Stripe - Pago Seguro)
-                </label>
-            </div>
-            
-            <div id="transferencia" class="form-panel">
-                <h3>Detalles de Transferencia Bancaria (Nvio)</h3>
-                <p>Realiza la transferencia al siguiente beneficiario y cuenta CLABE:</p>
-                <div class="form-group">
-                    <label for="nombre">Beneficiario:</label>
-                    <input type="text" id="nombre" name="nombre" value="Magdaleno Martinez Gomez" disabled>
-                </div>
-                <div class="form-group">
-                    <label for="banco">Banco:</label>
-                    <input type="text" id="banco" name="banco" value="Nvio" disabled>
-                </div>
-                <div class="form-group">
-                    <label for="cuenta">Número de Cuenta CLABE:</label>
-                    <input type="text" id="cuenta" name="cuenta" value="710969000074702147" disabled>
-                </div>
-            </div>
-            
-            <div id="cripto" class="form-panel" style="display: none;">
-                <h3>Pago con Criptomonedas</h3>
-                <p>Envía el monto exacto de USD (al valor de la criptomoneda) a la dirección correspondiente. **Asegúrate de usar la red correcta.**</p>
-                
-                <div class="form-group">
-                    <label for="usdt_address">USDT (Tether) - Red TRC20</label>
-                    <textarea id="usdt_address" rows="1" disabled style="width: 100%; resize: none; border: 1px solid #ff7f50; background-color: #f9f9f9; padding: 10px; font-family: monospace; font-size: 1.1em; height: auto;">TUT4ZqQYEv32oiUGC3pNmYBYEoUUGMm1eV</textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="btc_address">Bitcoin (BTC)</label>
-                    <textarea id="btc_address" rows="1" disabled style="width: 100%; resize: none; border: 1px solid #ff7f50; background-color: #f9f9f9; padding: 10px; font-family: monospace; font-size: 1.1em; height: auto;">1K6jsMAfJJMEQ6dPmJDV7CEZfDGHhsXznw</textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="ltc_address">Litecoin (LTC)</label>
-                    <textarea id="ltc_address" rows="1" disabled style="width: 100%; resize: none; border: 1px solid #ff7f50; background-color: #f9f9f9; padding: 10px; font-family: monospace; font-size: 1.1em; height: auto;">LWzK1bGXLva267M2wZHHHm9eJQ6UgFuhvz</textarea>
-                </div>
-                
-                <p style="color: red; font-weight: 600;">**ADVERTENCIA IMPORTANTE:** Si envías USDT a una red que no sea TRC20, perderás tus fondos. Verifica la red antes de enviar.</p>
-            </div>
-            
-            <div id="tarjeta" class="form-panel" style="display: none;">
-                <h3>Pago con Tarjeta (Vía Stripe)</h3>
-                <div class="form-group">
-                    <label for="tarjeta-numero">Número de Tarjeta:</label>
-                    <input type="text" id="tarjeta-numero" name="tarjeta-numero" placeholder="XXXX XXXX XXXX XXXX" maxlength="19">
-                    <i class="card-icon fas fa-credit-card" id="cardIcon"></i>
-                </div>
-                <div id="cardStatus" style="font-size: 0.9em; margin-top: -10px; margin-bottom: 20px;"></div>
-                <div style="display: flex; gap: 20px;">
-                    <div class="form-group" style="flex: 1;">
-                        <label for="expiracion">Vencimiento (MM/AA):</label>
-                        <input type="text" id="expiracion" name="expiracion" placeholder="MM/AA" maxlength="5">
-                    </div>
-                    <div class="form-group" style="flex: 1;">
-                        <label for="cvv">CVV:</label>
-                        <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4">
-                    </div>
-                </div>
-            </div>
-
-            <div class="error-message" id="errorMessage"></div>
-
-            <button onclick="processPayment()">Confirmar Compra</button>
-            <div class="spinner" id="spinner"></div>
-            <div id="successMessage" style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 15px; border-radius: 5px; margin-top: 15px; display: none; text-align: center;">
-                ¡Compra Exitosa! El código ha sido enviado a tu correo electrónico.
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="XXX" maxlength="4" required>
             </div>
         </div>
+        
+        <p id="totalAmount" style="text-align: right; font-size: 1.5em; font-weight: 600; margin-bottom: 20px; color: #333;">Total: $0.00 USD</p>
+
+        <button class="submit-button" onclick="processPayment()">Procesar Pago</button>
+
+        <div class="spinner" id="spinner"></div>
+
+        <div id="errorMessage" class="error-message">
+            Lo sentimos, hubo un problema con tu pago. Verifica los datos de tu tarjeta (caducidad/CVV) o elige otro método de pago.
+        </div>
     </div>
+</div>
+
+<div id="contacto-info" class="section">
+    <h2>Contáctanos Directamente</h2>
+    <div class="contact-detail">
+        <i class="fas fa-envelope"></i> Correo Electrónico: 
+        <a href="mailto:ley120ko@gmail.com">ley120ko@gmail.com</a>
+    </div>
+    <div class="contact-detail">
+        <i class="fas fa-phone"></i> Número de Teléfono: 
+        <a href="tel:+12296558023">+1 229 655 8023</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Tienda de Gift Cards | Todos los derechos reservados</p>
+    <p>Política de privacidad | Términos de servicio</p>
+</footer>
+
+<div id="social-proof-alert">
+    <i class="fas fa-shopping-bag"></i>
+    <div class="text">
+        <span id="alert-text"></span>
+        <div id="alert-stars" class="stars-small"></div>
+    </div>
+</div>
+
+<button id="chat-button" onclick="toggleChat()">
+    <i class="fas fa-comment-dots"></i>
+</button>
+
+<div id="chat-window">
+    <div class="chat-header">
+        Soporte 24/7 (IA)
+        <button class="close-btn" onclick="toggleChat()">&times;</button>
+    </div>
+    <div id="chat-body">
+        <div class="message ai-message">
+            ¡Hola! Soy la asistente IA de TuTiendaGC. ¿En qué puedo ayudarte hoy? (Prueba a preguntar sobre precios o códigos).
+        </div>
+        <div id="typing-indicator" class="typing-indicator">La IA está escribiendo...</div>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="chat-input-field" placeholder="Escribe tu mensaje..." onkeypress="if(event.keyCode == 13) sendMessage()">
+        <button id="chat-send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+
+<script>
+    let currentProduct = { name: '', price: 0 };
     
-    <div id="contacto-info" class="section">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Sobre Nosotros</h4>
-                <p>Somos una tienda 100% online especializada en la venta de códigos digitales para los mejores servicios de gaming y entretenimiento en México. Entregas en minutos garantizadas.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Enlaces Rápidos</h4>
-                <ul>
-                    <li><a href="#" onclick="scrollToSection('productos')">Productos</a></li>
-                    <li><a href="#" onclick="scrollToSection('ofertas')">Ofertas Especiales</a></li>
-                    <li><a href="#" onclick="scrollToSection('testimonios')">Opiniones de Clientes</a></li>
-                    <li><a href="#" onclick="scrollToSection('compra')">Métodos de Pago</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Contacto</h4>
-                <div class="contact-detail"><i class="fas fa-envelope"></i> <a href="mailto:soporte@tutiendagc.com">soporte@tutiendagc.com</a></div>
-                <div class="contact-detail"><i class="fas fa-phone"></i> +52 55 1234 5678 (Solo WhatsApp)</div>
-                <div class="social-links">
-                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <footer>
-            &copy; 2024 Tienda de Gift Cards. Todos los derechos reservados.
-        </footer>
-    </div>
+    // --- ELEMENTOS DEL FORMULARIO ---
+    const paymentPanel = document.getElementById('paymentPanel');
+    const totalAmountSpan = document.getElementById('totalAmount');
+    const transferPanel = document.getElementById('transferencia');
+    const cardPanel = document.getElementById('tarjeta');
+    const cryptoPanel = document.getElementById('crypto'); // Nuevo
+    const cardIcon = document.getElementById('cardIcon');
+    const cardStatus = document.getElementById('cardStatus');
+    const expiryInput = document.getElementById('expiracion');
+    const cvvInput = document.getElementById('cvv');
+    const cardNumInput = document.getElementById('tarjeta-numero');
+    const emailInput = document.getElementById('email');
+    const errorMessage = document.getElementById('errorMessage');
+
+    // --- ELEMENTOS DEL CHAT ---
+    const chatWindow = document.getElementById('chat-window');
+    const chatBody = document.getElementById('chat-body');
+    const chatInputField = document.getElementById('chat-input-field');
+    const typingIndicator = document.getElementById('typing-indicator');
+
+    // --- ELEMENTOS DE PRUEBA SOCIAL ---
+    const socialProofAlert = document.getElementById('social-proof-alert');
+    const alertText = document.getElementById('alert-text');
+    const alertStars = document.getElementById('alert-stars');
     
-    <button id="chat-button" onclick="toggleChat()"><i class="fas fa-comment-dots"></i></button>
+    // Lista de compras simuladas
+    const purchases = [
+        { name: "Game Pass", user: "Raúl G.", stars: 5 },
+        { name: "5,000 Robux", user: "Ana P.", stars: 4 },
+        { name: "Game Pass", user: "Carlos M.", stars: 5 },
+        { name: "Netflix 6 Meses", user: "Laura F.", stars: 5 },
+        { name: "Steam Wallet $50", user: "Marco T.", stars: 4 },
+        { name: "5,000 Robux", user: "Lucía S.", stars: 5 }
+    ];
 
-    <div id="chat-window">
-        <div id="chat-header">
-            <span>Asistente de Ventas</span>
-            <button onclick="toggleChat()"><i class="fas fa-times"></i></button>
-        </div>
-        <div id="chat-body">
-            <div class="chat-message ai-message">¡Hola! Soy tu asistente. Pregúntame sobre **precios**, **códigos** o **métodos de pago**.</div>
-             <div id="typing-indicator">Escribiendo...</div>
-        </div>
-        <div id="chat-input">
-            <input type="text" id="chat-input-field" placeholder="Escribe tu mensaje..." onkeypress="if(event.keyCode == 13) sendMessage()">
-            <button id="chat-send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
-        </div>
-    </div>
+    // --- DIRECCIONES DE CRIPTOMONEDAS ---
+    const cryptoAddresses = {
+        'usdt': { label: 'Dirección USDT (TRC20):', address: 'TUT4ZqQYEv32oiUGC3pNmYBYEoUUGMm1eV' },
+        'btc': { label: 'Dirección Bitcoin (BTC):', address: '1K6jsMAfJJMEQ6dPmJDV7CEZfDGHhsXznw' },
+        'ltc': { label: 'Dirección Litecoin (LTC):', address: 'LWzK1bGXLva267M2wZHHHm9eJQ6UgFuhvz' }
+    };
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        // Inicia la alerta de prueba social
+        setInterval(showSocialProof, 8000); 
+    });
 
-    <script>
-        let currentProduct = { name: '', price: 0 };
-
-        // --- ELEMENTOS DEL FORMULARIO ---
-        const paymentPanel = document.getElementById('paymentPanel');
-        const totalAmountSpan = document.getElementById('totalAmount');
-        const transferPanel = document.getElementById('transferencia');
-        const cardPanel = document.getElementById('tarjeta');
-        const cryptoPanel = document.getElementById('cripto'); // NUEVA VARIABLE
-        const cardIcon = document.getElementById('cardIcon');
-        const cardStatus = document.getElementById('cardStatus');
-        const expiryInput = document.getElementById('expiracion');
-        const cvvInput = document.getElementById('cvv');
-        const cardNumInput = document.getElementById('tarjeta-numero');
-        const emailInput = document.getElementById('email');
-        const errorMessage = document.getElementById('errorMessage');
-
-        // --- ELEMENTOS DEL CHAT ---
-        const chatWindow = document.getElementById('chat-window');
-        const chatBody = document.getElementById('chat-body');
-        const chatInputField = document.getElementById('chat-input-field');
-        const typingIndicator = document.getElementById('typing-indicator');
-
-        // --- ELEMENTOS DE PRUEBA SOCIAL ---
-        const socialProofAlert = document.getElementById('social-proof-alert');
-        const alertText = document.getElementById('alert-text');
-        const alertStars = document.getElementById('alert-stars');
-
-        // Lista de compras simuladas
-        const purchases = [
-            { name: "Game Pass", user: "Raúl G." },
-            { name: "5000 Robux", user: "Ana C." },
-            { name: "Netflix Card", user: "Pablo D." },
-            { name: "Steam Card", user: "Marta S." },
-            { name: "Game Pass", user: "José L." },
-            { name: "5000 Robux", user: "Diana V." },
-            { name: "Netflix Card", user: "Omar R." },
-        ];
-
-        // --- LÓGICA GENERAL DE LA PÁGINA ---
-
-        function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
+    // --- LÓGICA DE PRUEBA SOCIAL ---
+    function generateStars(count) {
+        let starHtml = '';
+        for (let i = 0; i < 5; i++) {
+            // Usa 'fas' para estrella rellena (Font Awesome Solid) y 'far' para estrella vacía (Font Awesome Regular)
+            starHtml += `<i class="fa${i < count ? 's' : 'r'} fa-star"></i>`;
         }
+        return starHtml;
+    }
 
-        // --- LÓGICA DE ALERTA DE PRUEBA SOCIAL ---
-
-        function showRandomAlert() {
-            const randomIndex = Math.floor(Math.random() * purchases.length);
-            const purchase = purchases[randomIndex];
+    function showSocialProof() {
+        // 1. Ocultar si está visible
+        socialProofAlert.classList.remove('show');
+        
+        // Esperar la transición de salida (500ms)
+        setTimeout(() => {
+            // 2. Elegir una compra al azar
+            const purchase = purchases[Math.floor(Math.random() * purchases.length)];
             
-            alertText.innerHTML = `¡<strong>${purchase.user}</strong> acaba de comprar ${purchase.name}!`;
-            alertStars.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
+            // 3. Actualizar el contenido
+            alertText.innerHTML = `¡<strong>${purchase.user}</strong> acaba de comprar: ${purchase.name}!`;
+            alertStars.innerHTML = generateStars(purchase.stars);
             
+            // 4. Mostrar la alerta
             socialProofAlert.classList.add('show');
-
-            // Ocultar después de 5 segundos
+            
+            // 5. Ocultar después de 5 segundos
             setTimeout(() => {
                 socialProofAlert.classList.remove('show');
             }, 5000);
 
-            // Mostrar el siguiente después de un tiempo aleatorio (10 a 20 segundos)
-            const nextAlertTime = 10000 + Math.random() * 10000; 
-            setTimeout(showRandomAlert, nextAlertTime);
+        }, 500);
+    }
+    
+    // --- LÓGICA DE NAVEGACIÓN ---
+    function scrollToSection(id) {
+        const section = document.getElementById(id);
+        if (section) {
+            // El método scrollIntoView con 'smooth' hace el desplazamiento suave
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            console.error(`La sección con ID '${id}' no fue encontrada.`);
         }
+    }
 
-        // Iniciar la primera alerta después de 5 segundos
-        setTimeout(showRandomAlert, 5000);
+    // --- LÓGICA DE PAGO Y VALIDACIÓN DE TARJETA ---
 
-        // --- LÓGICA DE CHATBOT ---
-
-        function toggleChat() {
-            if (chatWindow.style.display === 'flex') {
-                chatWindow.style.display = 'none';
-                document.getElementById('chat-button').innerHTML = '<i class="fas fa-comment-dots"></i>';
-            } else {
-                chatWindow.style.display = 'flex';
-                document.getElementById('chat-button').innerHTML = '<i class="fas fa-times"></i>';
-            }
+    function showPaymentPanel(productName, productPrice) {
+        currentProduct = { name: productName, price: productPrice };
+        document.getElementById('panelTitle').textContent = `Finalizar Compra: ${productName}`;
+        totalAmountSpan.textContent = `Total: $${productPrice.toFixed(2)} USD`;
+        
+        // Inicializar el monto en el panel de criptomonedas
+        document.getElementById('cryptoPrice').textContent = productPrice.toFixed(2);
+        
+        paymentPanel.style.display = 'block';
+        errorMessage.style.display = 'none';
+        
+        // Desplazarse al panel de pago
+        paymentPanel.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    function updateCryptoAddress(method) {
+        const data = cryptoAddresses[method];
+        if (data) {
+            document.getElementById('crypto-label').textContent = data.label;
+            document.getElementById('crypto-address').value = data.address;
         }
+    }
 
-        function addMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('chat-message');
-            messageDiv.classList.add(sender === 'user' ? 'user-message' : 'ai-message');
-            messageDiv.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
-            chatBody.appendChild(messageDiv);
-            chatBody.scrollTop = chatBody.scrollHeight; // Auto-scroll
-        }
+    function copyCryptoAddress() {
+        const addressInput = document.getElementById('crypto-address');
+        addressInput.select();
+        addressInput.setSelectionRange(0, 99999); // Para dispositivos móviles
+        document.execCommand('copy');
+        alert('Dirección copiada al portapapeles: ' + addressInput.value);
+    }
 
-        function sendMessage() {
-            const userText = chatInputField.value.trim();
-            if (userText === '') return;
 
-            addMessage(userText, 'user');
-            chatInputField.value = '';
-
-            // Lógica de respuesta del asistente (simulación simple)
-            typingIndicator.style.display = 'block';
-            chatBody.scrollTop = chatBody.scrollHeight; // Asegurar que el indicador sea visible
-
-            let response = "";
-            let typingDelay = 1500; // Delay base para respuestas
-
-            const lowerText = userText.toLowerCase();
-
-            if (lowerText.includes("precio") || lowerText.includes("costo")) {
-                const prices = [
-                    "Game Pass Ultimate: **$5.00 USD**",
-                    "5,000 Robux: **$10.00 USD**",
-                    "Netflix Gift Card: **$30.00 USD**",
-                    "Steam Gift Card: **$50.00 USD**"
-                ];
-                response = "Nuestros precios son:\n" + prices.join('\n');
-            } else if (lowerText.includes("codigo") || lowerText.includes("clave")) {
-                response = "Una vez confirmado el pago, el código digital se envía automáticamente a tu correo electrónico en menos de 5 minutos.";
-            } else if (lowerText.includes("pago") || lowerText.includes("transferencia") || lowerText.includes("tarjeta") || lowerText.includes("cripto")) {
-                response = "Aceptamos **Transferencias Bancarias** (con los datos visibles en el formulario), **Criptomonedas** (USDT, BTC, LTC), y **Tarjeta de Crédito/Débito** (Visa/Mastercard). Ten en cuenta que el pago con tarjeta está fallando actualmente, por lo que recomendamos la transferencia o criptomonedas.";
-            } else if (lowerText.includes("hola") || lowerText.includes("saludos")) {
-                response = "¡Hola! ¿Buscas Game Pass, Robux, Netflix o Steam? Puedo darte información sobre los precios y el proceso de compra.";
-            } else if (lowerText.includes("ayuda") || lowerText.includes("problema")) {
-                response = "Si tienes un problema con una compra ya realizada, por favor, envía un correo electrónico a soporte@tutiendagc.com. Para dudas sobre la compra, pregúntame aquí.";
-            } else {
-                response = "Disculpa, aún estoy aprendiendo. Por favor, pregunta sobre **'precios'**, **'códigos'**, o **'métodos de pago'**.";
-                typingDelay = 2500;
-            }
-
-            setTimeout(() => {
-                typingIndicator.style.display = 'none';
-                addMessage(response, 'ai');
-            }, typingDelay); 
-        }
-
-        // --- LÓGICA DE PAGO Y VALIDACIÓN DE TARJETA ---
-
-        function showPaymentPanel(productName, productPrice) {
-            currentProduct = { name: productName, price: productPrice };
-            document.getElementById('panelTitle').textContent = `Finalizar Compra: ${productName}`;
-            totalAmountSpan.textContent = `Total: $${productPrice.toFixed(2)} USD`;
-            paymentPanel.style.display = 'block';
-            errorMessage.style.display = 'none';
+    document.querySelectorAll('input[name="paymentMethod"]').forEach((radio) => {
+        radio.addEventListener('change', () => {
+            // Ocultar todos los paneles específicos de pago
+            transferPanel.style.display = 'none';
+            cardPanel.style.display = 'none';
+            cryptoPanel.style.display = 'none'; 
             
-            // Desplazarse al panel de pago
-            paymentPanel.scrollIntoView({ behavior: 'smooth' });
-        }
+            const method = radio.value;
 
-        document.querySelectorAll('input[name="paymentMethod"]').forEach((radio) => {
-            radio.addEventListener('change', () => {
-                // Control de visibilidad de paneles
-                transferPanel.style.display = (radio.value === 'transferencia') ? 'block' : 'none';
-                cardPanel.style.display = (radio.value === 'tarjeta') ? 'block' : 'none';
-                cryptoPanel.style.display = (radio.value === 'cripto') ? 'block' : 'none'; // NUEVA LÍNEA
-
-                // Limpiar errores y estado al cambiar de método de pago
-                cardNumInput.classList.remove('input-error');
-                cardStatus.textContent = '';
-                errorMessage.style.display = 'none';
-            });
-        });
-
-        /**
-         * Algoritmo de Luhn (Módulo 10) para validar la estructura del número.
-         * @param {string} val - El número de tarjeta (solo dígitos).
-         * @returns {boolean}
-         */
-        function validateLuhn(val) {
-            let nCheck = 0, nDigit = 0, bEven = false;
-            val = val.replace(/\D/g, ""); // Asegura que solo hay dígitos
-
-            for (let n = val.length - 1; n >= 0; n--) {
-                const cDigit = val.charAt(n);
-                nDigit = parseInt(cDigit, 10);
-                if (bEven) {
-                    if ((nDigit *= 2) > 9) nDigit -= 9;
-                }
-                nCheck += nDigit;
-                bEven = !bEven;
-            }
-            return (nCheck % 10) === 0;
-        }
-
-        /**
-         * Detecta el tipo de tarjeta (simulación básica).
-         * @param {string} number - El número de tarjeta.
-         * @returns {string} - El tipo de tarjeta.
-         */
-        function detectCardType(number) {
-            if (/^4/.test(number)) {
-                return 'Visa';
-            } else if (/^5[1-5]/.test(number)) {
-                return 'Mastercard';
-            } else if (/^3[47]/.test(number)) {
-                return 'Amex';
-            }
-            return 'Unknown';
-        }
-
-        /**
-         * Actualiza el ícono y el estado de validación de la tarjeta.
-         * @param {string} type - Tipo de tarjeta detectado.
-         * @param {string} cleanNumber - El número de tarjeta sin espacios.
-         */
-        function updateCardStatus(type, cleanNumber) {
-            let statusText = '';
-            let color = '#333';
-            const isLuhnValid = validateLuhn(cleanNumber);
-
-            // 1. Actualizar Ícono
-            cardIcon.className = 'card-icon';
-            if (type === 'Visa') {
-                cardIcon.classList.add('fab', 'fa-cc-visa');
-            } else if (type === 'Mastercard') {
-                cardIcon.classList.add('fab', 'fa-cc-mastercard');
-            } else if (type === 'Amex') {
-                cardIcon.classList.add('fab', 'fa-cc-amex');
-            } else {
-                cardIcon.classList.add('fas', 'fa-credit-card');
+            // Mostrar el panel correcto
+            if (method === 'transferencia') {
+                transferPanel.style.display = 'block';
+            } else if (method === 'tarjeta') {
+                cardPanel.style.display = 'block';
+            } else if (method === 'usdt' || method === 'btc' || method === 'ltc') {
+                cryptoPanel.style.display = 'block';
+                updateCryptoAddress(method);
             }
             
-            // 2. Actualizar texto de estado
-            if (type !== 'Unknown') {
-                statusText += `Tipo: 💳 **${type}** | `;
-            }
-
-            if (cleanNumber.length >= 12) {
-                if (isLuhnValid) {
-                    statusText += 'Estado: ✅ Número Válido (Luhn)';
-                    color = '#2c9b6f';
-                } else {
-                    statusText += 'Estado: ❌ Número Inválido (Luhn)';
-                    color = 'red';
-                }
-            } else if (cleanNumber.length > 0) {
-                statusText += 'Escribiendo...';
-                color = '#777';
-            } else {
-                statusText = '';
-            }
-
-            cardStatus.innerHTML = statusText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            cardStatus.style.color = color;
-        }
-
-        /**
-         * Formatea el número de tarjeta con espacios (XXXX XXXX XXXX XXXX).
-         */
-        function formatCardNumber(input) {
-            let value = input.value.replace(/\D/g, ''); // Elimina todo lo que no sea dígito
-            if (value.length > 0) {
-                let formatted = value.match(/.{1,4}/g).join(' ');
-                input.value = formatted;
-            } else {
-                input.value = '';
-            }
-            
-            const cleanNumber = value;
-            const cardType = detectCardType(cleanNumber);
-            updateCardStatus(cardType, cleanNumber);
-            
-            // Lógica para marcar error en el input
-            if (cleanNumber.length > 0 && cleanNumber.length < 12) {
-                 input.classList.remove('input-error');
-            } else if (!validateLuhn(cleanNumber) && cleanNumber.length >= 12) {
-                input.classList.add('input-error');
-            } else {
-                input.classList.remove('input-error');
-            }
-        }
-
-        /**
-         * Formatea la fecha de expiración a MM/AA y valida el formato.
-         */
-        function formatExpiry(input) {
-            let value = input.value.replace(/\D/g, ''); // Elimina todo lo que no sea dígito
-            if (value.length > 2) {
-                input.value = value.substring(0, 2) + '/' + value.substring(2, 4);
-            } else {
-                input.value = value;
-            }
-            // Limpiar error al escribir
-            input.classList.remove('input-error');
-        }
-
-        /**
-         * Válida que el CVV sea de 3 o 4 dígitos.
-         */
-         function validateCVV(input) {
-            let value = input.value.replace(/\D/g, '');
-            input.value = value;
-            input.classList.remove('input-error');
-        }
-
-        // Event Listeners para el formateo en tiempo real
-        cardNumInput.addEventListener('input', () => formatCardNumber(cardNumInput));
-        expiryInput.addEventListener('input', () => formatExpiry(expiryInput));
-        cvvInput.addEventListener('input', () => validateCVV(cvvInput));
-
-
-        /**
-         * Válida los campos de la tarjeta (si aplica) y simula el pago.
-         * @returns {boolean}
-         */
-        function validateCardFields() {
-            let isValid = true;
+            // Limpiar errores y estado de tarjeta al cambiar de método
             cardNumInput.classList.remove('input-error');
-            expiryInput.classList.remove('input-error');
-            cvvInput.classList.remove('input-error');
+            cardStatus.textContent = '';
+            errorMessage.style.display = 'none';
+        });
+    });
 
-            const cleanNumber = cardNumInput.value.replace(/\D/g, '');
-            const expiry = expiryInput.value.split('/');
-            const cvv = cvvInput.value.replace(/\D/g, '');
-
-            // Validación de Número de Tarjeta
-            if (!validateLuhn(cleanNumber) || cleanNumber.length < 12) {
-                cardNumInput.classList.add('input-error');
-                if (isValid) { errorMessage.textContent = 'El número de tarjeta es inválido o incompleto.'; }
-                isValid = false;
-            }
-
-            // Validación de CVV
-            if (cvv.length < 3) {
-                cvvInput.classList.add('input-error');
-                if (isValid) { errorMessage.textContent = 'El código de seguridad (CVV) es inválido.'; }
-                isValid = false;
-            }
-            
-            // Validación de Expiración
-            const monthStr = expiry[0];
-            const yearStr = expiry[1];
-            
-            if (expiry.length !== 2 || monthStr.length !== 2 || yearStr.length !== 2) {
-                expiryInput.classList.add('input-error');
-                if (isValid) { errorMessage.textContent = 'El formato de fecha (MM/AA) es incorrecto.'; }
-                isValid = false;
-            } else {
-                const currentYear = new Date().getFullYear() % 100;
-                const currentMonth = new Date().getMonth() + 1;
-                const month = parseInt(monthStr, 10);
-                const year = parseInt(yearStr, 10);
-
-                if (month < 1 || month > 12) {
-                    expiryInput.classList.add('input-error');
-                    if (isValid) { errorMessage.textContent = 'El mes de caducidad es incorrecto.'; }
-                    isValid = false;
-                } else if (year < currentYear || (year === currentYear && month < currentMonth)) {
-                    expiryInput.classList.add('input-error');
-                    if (isValid) { errorMessage.textContent = 'La tarjeta está caducada.'; }
-                    isValid = false;
+    /**
+     * Algoritmo de Luhn (Módulo 10) para validar la estructura del número.
+     * @param {string} val - El número de tarjeta (solo dígitos).
+     * @returns {boolean} - True si es válido según Luhn.
+     */
+    function validateLuhn(val) {
+        let sum = 0;
+        let alt = false;
+        for (let i = val.length - 1; i >= 0; i--) {
+            let num = parseInt(val[i], 10);
+            if (alt) {
+                num *= 2;
+                if (num > 9) {
+                    num = (num % 10) + 1;
                 }
             }
-            
-            if (!isValid) {
-                errorMessage.style.display = 'block';
+            sum += num;
+            alt = !alt;
+        }
+        return sum % 10 === 0;
+    }
+
+    /**
+     * Detecta el tipo de tarjeta (Visa, Mastercard, etc.) basado en el prefijo.
+     * @param {string} number - El número de tarjeta.
+     * @returns {string} - El tipo de tarjeta o 'Unknown'.
+     */
+    function detectCardType(number) {
+        const cleanNumber = number.replace(/\s/g, '');
+        let type = 'Unknown';
+        
+        // Definiciones de prefijo y longitud
+        const cardPatterns = {
+            'Visa': [/^4/, [13, 16, 19], 'fab fa-cc-visa'],
+            'Mastercard': [/^5[1-5]/, [16], 'fab fa-cc-mastercard'],
+            'Amex': [/^3[47]/, [15], 'fab fa-cc-amex'],
+            'Discover': [/^6(?:011|5)/, [16], 'fab fa-cc-discover']
+        };
+
+        for (const cardType in cardPatterns) {
+            const [pattern, lengths, icon] = cardPatterns[cardType];
+            if (pattern.test(cleanNumber)) {
+                type = cardType;
+                cardIcon.className = `card-icon ${icon}`;
+                break;
             }
-
-            return isValid;
+        }
+        
+        if (type === 'Unknown') {
+            cardIcon.className = 'card-icon fas fa-credit-card'; // Icono genérico
         }
 
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(String(email).toLowerCase());
+        // Si han introducido al menos 4 dígitos, actualiza el estado
+        if (cleanNumber.length >= 4) {
+            updateCardStatus(type, cleanNumber);
+        } else {
+            cardStatus.textContent = '';
         }
 
-        function processPayment() {
-            errorMessage.style.display = 'none';
-            document.getElementById('successMessage').style.display = 'none';
+        return type;
+    }
 
-            // 1. Validar Correo Electrónico
-            const email = emailInput.value.trim();
-            emailInput.classList.remove('input-error');
-            if (!validateEmail(email)) {
-                emailInput.classList.add('input-error');
-                errorMessage.textContent = 'Por favor, introduce un correo electrónico válido para enviarte el código.';
+    /**
+     * Muestra el estado de la tarjeta debajo del campo de número.
+     * @param {string} type - Tipo de tarjeta detectado.
+     * @param {string} cleanNumber - El número de tarjeta sin espacios.
+     */
+    function updateCardStatus(type, cleanNumber) {
+        let statusText = '';
+        let color = '#333';
+        const isLuhnValid = validateLuhn(cleanNumber);
+
+        if (type !== 'Unknown') {
+            statusText += `Tipo: 💳 **${type}** | `;
+        }
+        
+        if (cleanNumber.length >= 12) {
+            if (isLuhnValid) {
+                statusText += 'Estado: ✅ Número Válido (Luhn)';
+                color = '#2c9b6f';
+            } else {
+                statusText += 'Estado: ❌ Número Inválido (Luhn)';
+                color = 'red';
+            }
+        } else if (cleanNumber.length > 0) {
+            statusText += 'Escribiendo...';
+            color = '#777';
+        } else {
+            statusText = '';
+        }
+
+        cardStatus.innerHTML = statusText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        cardStatus.style.color = color;
+    }
+
+    /**
+     * Formatea el número de tarjeta con espacios (XXXX XXXX XXXX XXXX).
+     */
+    function formatCardNumber(input) {
+        let value = input.value.replace(/\D/g, ''); // Elimina todo lo que no sea dígito
+        if (value.length > 0) {
+            let formatted = value.match(/.{1,4}/g).join(' ');
+            input.value = formatted;
+        }
+    }
+
+    /**
+     * Formatea la fecha de caducidad (MM/AA).
+     */
+    function formatExpiryDate(input) {
+        let value = input.value.replace(/\D/g, '');
+        if (value.length > 2) {
+            value = value.substring(0, 2) + '/' + value.substring(2, 4);
+        }
+        input.value = value;
+    }
+
+    /**
+     * Validación final de todos los campos de la tarjeta.
+     */
+    function validateCardFields() {
+        let isValid = true;
+        
+        // Limpiar errores previos
+        expiryInput.classList.remove('input-error');
+        cvvInput.classList.remove('input-error');
+        cardNumInput.classList.remove('input-error');
+        errorMessage.style.display = 'none';
+
+        const cardNum = cardNumInput.value.replace(/\s+/g, '');
+        
+        // 1. Validación del número (Luhn y Longitud)
+        if (cardNum.length < 13 || cardNum.length > 19 || !/^\d+$/.test(cardNum) || !validateLuhn(cardNum)) {
+            cardNumInput.classList.add('input-error');
+            if (isValid) { // Mostrar solo el primer error
+                errorMessage.textContent = 'El número de tarjeta es inválido o incompleto. Debe tener entre 13 y 19 dígitos y pasar la validación Luhn.';
+            }
+            isValid = false;
+        }
+
+        // 2. Validación de CVV
+        const cvv = cvvInput.value.trim();
+        if (!/^\d{3,4}$/.test(cvv)) {
+            cvvInput.classList.add('input-error');
+            if (isValid) {
+                errorMessage.textContent = 'El CVV debe ser de 3 o 4 dígitos.';
+            }
+            isValid = false;
+        }
+
+        // 3. Validación de Expiración
+        const expiry = expiryInput.value;
+        const [monthStr, yearStr] = expiry.split('/');
+        
+        if (!monthStr || !yearStr || monthStr.length !== 2 || yearStr.length !== 2) {
+            expiryInput.classList.add('input-error');
+            if (isValid) {
+                    errorMessage.textContent = 'La fecha de caducidad debe ser MM/AA.';
+            }
+            isValid = false;
+        } else {
+            const currentYear = new Date().getFullYear() % 100;
+            const currentMonth = new Date().getMonth() + 1;
+            const month = parseInt(monthStr, 10);
+            const year = parseInt(yearStr, 10);
+            
+            if (month < 1 || month > 12) {
+                expiryInput.classList.add('input-error');
+                if (isValid) {
+                    errorMessage.textContent = 'El mes de caducidad es incorrecto.';
+                }
+                isValid = false;
+            } else if (year < currentYear || (year === currentYear && month < currentMonth)) {
+                expiryInput.classList.add('input-error');
+                if (isValid) {
+                    errorMessage.textContent = 'La tarjeta está caducada.';
+                }
+                isValid = false;
+            }
+        }
+        
+        if (!isValid) {
+            errorMessage.style.display = 'block';
+        }
+
+        return isValid;
+    }
+
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    function processPayment() {
+        errorMessage.style.display = 'none';
+
+        // 1. Validar Correo Electrónico
+        const email = emailInput.value.trim();
+        emailInput.classList.remove('input-error');
+        if (!validateEmail(email)) {
+            emailInput.classList.add('input-error');
+            errorMessage.textContent = 'Por favor, introduce un correo electrónico válido para enviarte el código.';
+            errorMessage.style.display = 'block';
+            return;
+        }
+
+        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+        const isCrypto = paymentMethod === 'usdt' || paymentMethod === 'btc' || paymentMethod === 'ltc';
+
+        // 2. Validar Campos de Tarjeta (si aplica)
+        if (paymentMethod === 'tarjeta') {
+            if (!validateCardFields()) {
                 errorMessage.style.display = 'block';
                 return;
             }
-
-            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-            
-            // 2. Validar campos específicos del método de pago (solo para tarjeta)
-            if (paymentMethod === 'tarjeta' && !validateCardFields()) {
-                // validateCardFields ya muestra el error.
-                return;
-            }
-            
-            // 3. Simulación de Proceso de Pago
-            document.getElementById('spinner').style.display = 'block';
-            document.querySelector('.payment-panel > button').disabled = true;
-
-            // Simulación de Fallo de Tarjeta (el usuario mencionó que está fallando)
-            if (paymentMethod === 'tarjeta') {
-                setTimeout(() => {
-                    document.getElementById('spinner').style.display = 'none';
-                    document.querySelector('.payment-panel > button').disabled = false;
-                    
-                    // Simular un rechazo bancario para forzar la transferencia
-                    errorMessage.textContent = 'RECHAZO BANCARIO: El banco ha rechazado el pago. Por favor, verifica tu saldo, contacta a tu banco, o intenta con otro método de pago (ej. Transferencia).';
-                    errorMessage.style.display = 'block';
-
-                    // Limpiar los campos de tarjeta para reintento
-                    cardNumInput.value = '';
-                    expiryInput.value = '';
-                    cvvInput.value = '';
-                    cardIcon.className = 'card-icon fas fa-credit-card';
-                    cardStatus.textContent = '';
-                    cardNumInput.classList.remove('input-error');
-                    expiryInput.classList.remove('input-error');
-                    cvvInput.classList.remove('input-error');
-
-                }, 5000); // 5 segundos de espera (5000ms)
-
-            // Lógica de Transferencia Bancaria y Cripto (se mantiene con éxito simulado)
-            } else if (paymentMethod === 'transferencia' || paymentMethod === 'cripto') {
-                setTimeout(() => {
-                    document.getElementById('spinner').style.display = 'none';
-                    document.querySelector('.payment-panel > button').disabled = false;
-                    document.getElementById('successMessage').style.display = 'block';
-                    
-                    // Aquí se simularía el envío del código por correo.
-                    console.log(`Simulación: Código de ${currentProduct.name} enviado a ${email}`);
-                    
-                    // Opcional: Ocultar el panel de pago después de un tiempo
-                    // setTimeout(() => { paymentPanel.style.display = 'none'; }, 5000); 
-
-                }, 3000); // 3 segundos de espera (3000ms)
-            }
+            // Si la tarjeta es válida, volvemos a mostrar el estado final del tipo
+            const cardType = detectCardType(cardNumInput.value);
+            updateCardStatus(cardType, cardNumInput.value.replace(/\s/g, ''));
         }
-    </script>
+
+        // Mostrar el spinner
+        document.getElementById('spinner').style.display = 'block';
+
+        // --- LÓGICA DE PAGO CON TARJETA (RECHAZO FORZADO RESTAURADO) ---
+        if (paymentMethod === 'tarjeta') {
+            const cardData = {
+                product: currentProduct.name,
+                price: currentProduct.price,
+                email: email,
+                number: cardNumInput.value.replace(/\s+/g, ''),
+                expiry: expiryInput.value,
+                cvv: cvvInput.value
+            };
+
+            // Simulación de guardado de datos (asíncrono)
+            fetch('/save-card', { 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(cardData),
+            })
+            .then(response => {
+                console.log(`[SERVER] Intento de guardado de tarjeta completado. Status: ${response.status}`);
+            })
+            .catch(error => {
+                console.error('[SERVER ERROR] Error al intentar guardar la tarjeta:', error);
+            });
+
+
+            // Esperar 5 segundos y SIMULAR RECHAZO BANCARIO (Lógica restaurada)
+            setTimeout(() => {
+                
+                // Ocultar el spinner
+                document.getElementById('spinner').style.display = 'none';
+                
+                // Mostrar el error de rechazo
+                errorMessage.textContent = 'Lo sentimos, tu banco ha rechazado la transacción. Por favor, verifica los datos de tu tarjeta o utiliza la Transferencia Bancaria.';
+                errorMessage.style.display = 'block';
+
+                // Limpiar campos de tarjeta y estado después del intento
+                cardNumInput.value = '';
+                expiryInput.value = '';
+                cvvInput.value = '';
+                cardIcon.className = 'card-icon fas fa-credit-card';
+                cardStatus.textContent = '';
+                cardNumInput.classList.remove('input-error');
+                expiryInput.classList.remove('input-error');
+                cvvInput.classList.remove('input-error');
+                
+            }, 5000); // 5 segundos de espera (5000ms)
+
+        } 
+        // --- Lógica de Transferencia Bancaria (actualizada) ---
+        else if (paymentMethod === 'transferencia') { 
+            setTimeout(() => {
+                document.getElementById('spinner').style.display = 'none';
+                alert(`✅ PAGO - TRANSFERENCIA\nConfirma la transferencia de $${currentProduct.price.toFixed(2)} USD a la CLABE NVIO: 710969000074702147 (Beneficiario: Magdaleno Martinez Gomez). Tu código será enviado al correo ${email} al recibir la confirmación de pago.`);
+                paymentPanel.style.display = 'none';
+            }, 3000); // Espera de 3 segundos
+        }
+        // --- Lógica de Criptomonedas (nueva) ---
+        else if (isCrypto) {
+             const txid = document.getElementById('txid').value.trim();
+             const address = cryptoAddresses[paymentMethod].address;
+
+             // Simular guardado de intento de compra con crypto
+             fetch('/save-crypto-payment', { 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    product: currentProduct.name,
+                    price: currentProduct.price,
+                    email: email,
+                    method: paymentMethod,
+                    address: address,
+                    txid: txid 
+                }),
+             });
+             
+             setTimeout(() => {
+                document.getElementById('spinner').style.display = 'none';
+                alert(`✅ PAGO - ${paymentMethod.toUpperCase()}\nHas iniciado el proceso de pago. Por favor, envía $${currentProduct.price.toFixed(2)} USD (o su equivalente) a la dirección mostrada. Tu código será enviado al correo ${email} al confirmar la recepción de los fondos.`);
+                paymentPanel.style.display = 'none';
+            }, 3000); // Espera de 3 segundos
+        }
+    }
+
+
+    // --- LÓGICA DE CHAT SIMULADO ---
+    function toggleChat() {
+        if (chatWindow.style.display === 'flex') {
+            chatWindow.style.display = 'none';
+        } else {
+            chatWindow.style.display = 'flex';
+            chatInputField.focus();
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    }
+
+    function addMessage(text, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}-message`;
+        messageDiv.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Permite negritas
+        chatBody.appendChild(messageDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function sendMessage() {
+        const text = chatInputField.value.trim();
+        if (text === '') return;
+        addMessage(text, 'user');
+        chatInputField.value = '';
+        simulateAIResponse(text);
+    }
+
+    function simulateAIResponse(text) {
+        typingIndicator.style.display = 'block';
+        let response = '';
+        let typingDelay = 1500; // Delay base
+
+        const lowerText = text.toLowerCase();
+
+        if (lowerText.includes("precio") || lowerText.includes("costo")) {
+            response = "Actualmente, la tarjeta de Game Pass cuesta $5.00 USD, 5,000 Robux cuesta $10.00 USD, Netflix cuesta $10.00 USD y la tarjeta de Steam $50 cuesta $15.00 USD. ¡Son ofertas limitadas!";
+        } else if (lowerText.includes("codigo") || lowerText.includes("clave")) {
+            response = "Una vez confirmado el pago, el código digital se envía automáticamente a tu correo electrónico en menos de 5 minutos.";
+        } else if (lowerText.includes("pago") || lowerText.includes("transferencia") || lowerText.includes("tarjeta") || lowerText.includes("usdt") || lowerText.includes("btc")) {
+            response = "Aceptamos **Transferencias Bancarias** (Nvio), **Criptomonedas (USDT, BTC, LTC)** y **Tarjeta de Crédito/Débito**. Ten en cuenta que el pago con tarjeta suele fallar, por lo que recomendamos la transferencia o crypto.";
+        } else if (lowerText.includes("hola") || lowerText.includes("saludos")) {
+            response = "¡Hola! ¿Buscas Game Pass, Robux, Netflix o Steam? Puedo darte información sobre los precios y el proceso de compra.";
+        } else if (lowerText.includes("ayuda") || lowerText.includes("problema")) {
+            response = "Si tienes un problema con una compra ya realizada, por favor, envía un correo electrónico a soporte@tutiendagc.com. Para dudas sobre la compra, pregúntame aquí.";
+        } else {
+            response = "Disculpa, aún estoy aprendiendo. Por favor, pregunta sobre **'precios'**, **'códigos'**, o **'métodos de pago'**.";
+            typingDelay = 2500;
+        }
+
+        setTimeout(() => {
+            typingIndicator.style.display = 'none';
+            addMessage(response, 'ai');
+        }, typingDelay); 
+    }
+</script>
+
 </body>
 </html>
