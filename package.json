@@ -4,6 +4,7 @@
   "description": "Tienda de tarjetas con inventario en DB.",
   "main": "server.js",
   "scripts": {
+    "migrar": "node migrarTxtABase.js",
     "start": "node server.js"
   },
   "dependencies": {
